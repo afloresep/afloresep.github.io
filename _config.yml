@@ -21,7 +21,7 @@ repository               : "afloresep/afloresep.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "linkedinpp.jpg"
+  avatar           : linkedinpp.jpg
   name             : "Alejandro Flores"
   pronouns         : # example: "she/her"  
   bio              : "PhD student at Reymond Group, working in ML, Chemoinformatics and Data visualization"
