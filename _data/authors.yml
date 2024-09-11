@@ -1,18 +1,18 @@
 # Authors
 
 Name Name:
-  name        : "Name Name"
+  name        : "Alejandro Flores"
   uri         : "http://name.com"
-  email       : "name@name.com"
-  bio         : "This is the first name."
-  avatar      : "bio-photo-2.jpg"
+  email       : "afloresep01@gmail.com"
+  bio         : "PhD student at Reymond Group, working in ML, Chemoinformatics and Data visualization."
+  avatar      : "linkedinpp.jpg"
   twitter     : "name"
   google_plus : "Name"
 
 Name2 Name2:
-  name        : "Name2 Name2"
-  email       : "name2@name2.com"
-  bio         : "I ordered what?"
-  avatar      : "bio-photo.jpg"
+  name        : "Alejandro Flores"
+  email       : "afloresep01@gmail.com"
+  bio         : "PhD student at Reymond Group, working in ML, Chemoinformatics and Data visualization."
+  avatar      : "linkedinpp.jpg"
   twitter     : "name2"
   google_plus : "Name"
