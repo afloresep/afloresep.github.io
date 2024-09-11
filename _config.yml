@@ -24,7 +24,7 @@ author:
   avatar           : "profile.png"
   name             : "Your Sidebar Name"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "PhD student at Reymond Group, working in ML, Chemoinformatics and Data visualization"
   location         : "Bern, Switzerland"
   employer         : "University of Bern"
   uri              : # URL
@@ -48,16 +48,12 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
-  facebook         : # Username
-  flickr           : # Username
-  foursquare       : # Username
   goodreads        : # Username
   google_plus      : # Username
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "afloresep"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
