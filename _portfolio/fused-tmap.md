@@ -6,22 +6,24 @@ collection: portfolio
 
 This project aims to provide a comprehensive visualization of the most active compounds for a diverse array of targets sourced from the ChemBL database.
 
-Visualization of Top Compounds: Identify and visualize the top 5 most active compounds for approximately 15,000 distinct biological targets.
-Fingerprint Merging and Minhashing: For each target, take 5 compounds and calculate their fingerprint using MAP*. These fingerprints, which encapsulate the chemical characteristics of each compound, are then merged to create a unified representation (merged_fp). Subsequently, the merged fingerprints are subjected to minhashing techniques to reduce dimensionality and facilitate efficient comparison (i.e. calculating Jaccard distances).
-Run TMAP
+#### Objectives: 
+* Visualization of Top Compounds: Identify and visualize the top 5 most active compounds for approximately 15,000 distinct biological targets.
+* Fingerprint Merging and Minhashing: For each target, take 5 compounds and calculate their fingerprint using MAP*. These fingerprints, which encapsulate the chemical characteristics of each compound, are then merged to create a unified representation (merged_fp). Subsequently, the merged fingerprints are subjected to minhashing techniques to reduce dimensionality and facilitate efficient comparison (i.e. calculating Jaccard distances).
+* Run TMAP
 
 
 
-### Data Analysis of the Dataframe
+## 1. Data Analysis of the Dataframe
 
-The dataset contains information about chemical compounds, their targets, and various properties. It consists of 38,370 entries with 11 columns, including both categorical and numerical data. Data was selected to have the 5 most active compounds (`canonical_smiles`) for every `Target_ID` in the ChemBL database.  
+The dataset contains information about chemical compounds, their targets, and various properties. It consists of 38,370 entries with 11 columns, including both categorical and numerical data. Data was selected to have the 5 most active compounds (`canonical_smiles`) for every `Target_ID` in the ChemBL database.
+The full dataset and code can be found [here](https://github.com/afloresep/fused_target_tmap/blob/master/alex_dataset.csv)
 
 ### Basic Information
 
 - Total entries: 38,370
 - Number of features: 11
 
-## Data Types and Missing Values
+### Data Types and Missing Values
 
 | Column                | Data Type | Non-Null Count | Missing Values |
 |-----------------------|-----------|----------------|----------------|
@@ -38,7 +40,7 @@ The dataset contains information about chemical compounds, their targets, and va
 | Target_type           | object    | 38370          | 0              |
 
 
-## Unique Value Counts
+### Unique Value Counts
 
 | Column                | Unique Values |
 |-----------------------|---------------|
@@ -58,6 +60,7 @@ Observations:
 - Not every `canonical_smiles` is unique, suggesting there are compounds that bind several Targets. 
 - There are 7016 Targets.
 - The dataset covers a single Target_Taxonomy, Target_organism, and Target_type.
+- We will have to do reduce the unique values in some of the categories for the TMAP as color coding is not a good idea for <50 unique 
 
 ## Categorical Variables Distribution
 
