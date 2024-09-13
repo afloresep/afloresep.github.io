@@ -49,7 +49,5 @@ This website will primarily focus on my professional and academic development, s
 - **Antología comentada de la poesía lírica española** by Miguel Díez  
   I’m not a poetry enthusiast by any means, but I received this book in high school. Over the years, I’ve come to appreciate it and now find myself revisiting its pages from time to time.
 
- Here’s an improved version of your sentence:
-
 - **The Stormlight Archive** by Brandon Sanderson  
   Hands down the best fantasy series ever written. I'm a huge nerd when it comes to anything related to the Cosmere universe.
