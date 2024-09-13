@@ -16,7 +16,7 @@ This project aims to provide a comprehensive visualization of the most active co
 ## 1. Data Analysis of the Dataframe
 
 The dataset contains information about chemical compounds, their targets, and various properties. It consists of 38,370 entries with 11 columns, including both categorical and numerical data. Data was selected to have the 5 most active compounds (`canonical_smiles`) for every `Target_ID` in the ChemBL database.
-The full dataset and code can be found [here](https://github.com/afloresep/fused_target_tmap/blob/master/alex_dataset.csv)
+The full dataset and code can be found [here](https://github.com/afloresep/fused_target_tmap/blob/master/dataset.csv)
 
 ### Basic Information
 
@@ -39,7 +39,6 @@ The full dataset and code can be found [here](https://github.com/afloresep/fused
 | Target_organism       | object    | 38370          | 0              |
 | Target_type           | object    | 38370          | 0              |
 
-
 ### Unique Value Counts
 
 | Column                | Unique Values |
@@ -61,68 +60,122 @@ Observations:
 - There are 7016 Targets.
 - The dataset covers a single Target_Taxonomy, Target_organism, and Target_type.
 - We will have to do reduce the unique values in some of the categories for the TMAP as color coding is not a good idea for <50 unique 
+- The numerical values like the IC50, Ki or Kd cannot be directly compared. We will use this when we display the merged compounds we will take the most active one of the 5 and show its IC50, molecule etc. 
+### First Run using MAPC fingerprints
+Running a First TMAP using MAP* fingerprints. Before fusing the fingerprints I want to make sure everything runs normally and visualize the TMAP with all the data available to then change necessary parameters.
 
-## Categorical Variables Distribution
+Code at 
+1. Import data
+2. Calculate fingerprints
+3. Run TMAP which includes: 
+	- LSH Indexing and coordinates generation 
+	- Coordinates and Layout configuration
+	- Plotting using Faerun
 
-### Top 5 Categories for Each Categorical Variable
+After a few trials and readjusting the node_size etc we have this: 
 
-1. Target_ID:
-   [Distribution of top 5 Target_IDs]
+<img src='/images/first_tmap.png'>
 
-2. target_name:
-   [Distribution of top 5 target names]
+### Merging the Fingerprints
+The fingerprint is basically a vector of n-dimensions in a special type of format used in TMAP called 'VectorUint'. Think of it as a numpy array. To merge the fingerprint one just have to select the minimum value on each index for all the fingerprints with same target ID. The resulting vector will have a combination of all the vectors -fingerprints- from the different compounds and therefore will enconde the most relevant features. 
 
-3. standard_relation:
-   [Distribution of standard relations]
+In order to perform the minimum value operation provided by numpy we have to convert the tmap VectorUint object into a numpy array. This is simply done by using np.array() function. So we do that:
 
-4. target_protein_class:
-   [Distribution of top 5 protein classes]
+```
+df_processed = df.loc[valid_indices].copy()
+df_processed['fingerprint_vector'] = pd.Series(fingerprints, index=valid_indices)
+df_processed['fingerprint_vector'] = df_processed['fingerprint_vector'].apply(np.array)
+```
+Now we calculate the resulting vector: 
 
-5. Target_Taxonomy, Target_organism, Target_type:
-   (Each has only one category, representing 100% of the data)
+```
+result = df_processed.groupby('Target_ID').agg({
+        'fingerprint_vector': lambda x: np.min(np.vstack(x), axis=0).tolist(),
+        **{col: 'first' for col in df_processed.columns if col not in ['fingerprint_vector', 'Target_ID']}
+    }).reset_index(
+```
+> You can find a more in-depth explanation of this piece of code down the page
 
-## Numerical Variables Analysis
+In summary:
+- The code groups the data by `Target_ID`.
+- For each group, it computes the element-wise minimum of the `fingerprint_vector` column (to combine fingerprints for the same target).
+- For all other columns, it simply keeps the first value in each group.
+- The result is a new DataFrame with one row per `Target_ID` and a combined (minimized) fingerprint for each target.
 
-### Standard Value
+**Now we re-run TMAP: **
 
-- Mean: [Mean value]
-- Median: [Median value]
-- Standard Deviation: [Standard deviation]
-- Minimum: [Minimum value]
-- Maximum: [Maximum value]
+<img src='/images/fused_tmap.png'>
 
-![Distribution of Standard Value](standard_value_distribution.png)
+Well, it worked!
+However, we still have to work on the label data as there isn't much information we can retrieve out of this. 
 
-Observations:
-- [Comments on the distribution of standard_value]
+For that we will change the amount of unique values. 
+`df['target_protein_class'].unique()` returns 68 different values so we will reduce it to ~10 by using a new function that simply takes all the words an searches for more global values such as 'enzyme', 'transporter' or 'membrane receptor'
+```
+def map_protein_class(value):
 
-## Relationships and Correlations
+    if pd.isna(value):
+        return np.nan
 
-### Standard Value by Target Type
+    value = value.lower().strip()
 
-![Standard Value by Target Type](standard_value_by_target_type.png)
+    if 'enzyme' in value:
+        if 'kinase' in value:
+            return 'kinase'
+        elif 'protease' in value:
+            return 'protease'
+        elif 'cytochrome p450' in value:
+            return 'cytochrome p450'
+        else:
+            return 'enzyme'
+    elif 'ion channel' in value:
+        return 'ion channel'
+    elif 'transporter' in value:
+        return 'transporter'
+    elif 'transcription factor' in value:
+        return 'transcription factor'
+    elif 'membrane receptor' in value:
+        return 'membrane receptor'
+    elif 'epigenetic regulator' in value:
+        return 'epigenetic regulator'
+    else:
+        return 'other'  # Default category for unmatched classes
+```
 
-Observations:
-- [Comments on the relationship between standard_value and Target_type]
+Fixing this and other labels with a similar function, we re-run the code: 
 
-## Top 10 Target_IDs by Frequency
+<img src='/images/nice_label_tmap.png'>
+That's more like it. 
 
-[List of top 10 Target_IDs and their frequencies]
 
-## Conclusions and Recommendations
+### The fusing explained: 
+This piece of code is aggregating data in a pandas DataFrame `df_processed` based on the values in the `Target_ID` column. 
 
-1. The dataset is focused on a small number of specific targets (5 unique Target_IDs), which suggests a specialized study or screening campaign.
+1. **`df_processed.groupby('Target_ID')`**:
+- This groups the DataFrame `df_processed` by the values in the `Target_ID` column. Grouping means all rows that have the same `Target_ID` will be treated as a single group for subsequent operations.
 
-2. There's a significant amount of missing data in the `target_protein_class` column. Further investigation into why this data is missing and its potential impact on analysis is recommended.
+2. **`.agg({ ... })`**:
 
-3. All entries share the same standard_type, standard_units, Target_Taxonomy, Target_organism, and Target_type. This uniformity might be beneficial for comparative analyses but limits the diversity of the dataset.
+- The `.agg()` method allows you to specify how each column within each group should be aggregated (i.e., combined or summarized).
+- In this case, a dictionary is passed that specifies how to aggregate two different types of columns:
+    1. The `fingerprint_vector` column.
+    2. All other columns except `fingerprint_vector` and `Target_ID`.
 
-4. The `standard_value` shows a wide range of values. Further analysis of this distribution in relation to different targets or compound properties could yield interesting insights.
+ 3. **`'fingerprint_vector': lambda x: np.min(np.vstack(x), axis=0).tolist()`**:
+- This specifies how the `fingerprint_vector` column should be aggregated.
+- `x` is a list of fingerprint vectors for each group (where each `Target_ID` may have multiple associated fingerprints).
+- `np.vstack(x)` stacks the individual vectors in `x` vertically to form a 2D array, where each fingerprint vector becomes a row in that array.
+- `np.min(..., axis=0)` computes the minimum value for each element across the stacked fingerprint vectors column-wise, i.e., it finds the minimum value for each position in the fingerprint vectors.
+- `.tolist()` converts the result back into a Python list.
+- The result is a single fingerprint vector per `Target_ID`, where each element is the minimum value from the corresponding positions in the group's vectors.
 
-5. Consider exploring the relationship between the chemical structures (represented by SMILES) and the standard_value. This might require additional cheminformatics tools to extract meaningful features from the SMILES strings.
+ 4. **`**{col: 'first' for col in df_processed.columns if col not in ['fingerprint_vector', 'Target_ID']}`**:
+- This handles the aggregation of all other columns (excluding `fingerprint_vector` and `Target_ID`).
+- A dictionary comprehension is used to specify that for each other column, the `'first'` value in the group should be taken. This means that for all non-fingerprint columns, only the first value in the group will be retained, and all other values will be discarded.
+- This is common when columns contain metadata that doesn't change across rows for the same `Target_ID`.
+ 
+5. **`.reset_index()`**:
+- After the grouping and aggregation are complete, the `.reset_index()` method is used to convert the grouped `Target_ID` back into a regular column in the resulting DataFrame (as opposed to being part of the DataFrame’s index).
+- This ensures that the output is a clean DataFrame where `Target_ID` is a standard column, not an index.
 
-6. Given the focused nature of the dataset, it might be valuable to compare these results with similar datasets targeting different organisms or protein classes to identify any unique characteristics of these specific targets.
 
-7. For future data collection, efforts to complete the `target_protein_class` information could enhance the dataset's value for protein-related analyses.
-
-This report provides an initial overview of the dataset. Depending on the specific research questions or goals, further in-depth analyses might be necessary.
