@@ -7,7 +7,11 @@ redirect_from:
   - /about.html
 ---
 
-**Someone once told me that in order to think, you have to write. So here’s my attempt.**
+PhD in Chemoinformatics at the University of Bern, working with Reymond's group. My research focuses on Big Data and AI. Trying to advance the field of chemistry and computer-aided drug discovery. I am particularly interested in employing machine learning and deep learning techniques to address complex problems in these areas. My work involves using tools like [TMAP](https://afloresep.github.io/TMAP/)
+
+In addition to my primary research, I am also exploring algorithms, data structures, and computer vision, aiming to expand my skill set and apply these concepts to various challenges in my field. This site serves as a platform to document my coursework, projects, and reflections as I navigate my academic and professional journey
+
+Also, Someone once told me that in order to think, you have to write. So here’s my attempt.
 
 ### Coursework
 This section tracks the classes I’m currently taking or have completed, both through formal University courses and self-study. I’ll create subpages for individual courses or topics.
