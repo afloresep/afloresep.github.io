@@ -6,9 +6,6 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Here’s an improved and polished version of your writing:
-
----
 
 **Someone once told me that in order to think, you have to write. So here’s my attempt.**
 
