@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "en-UE"
+locale                   : "en-EU"
 title                    : "Alejandro Flores"
 title_separator          : "-"
 name                     : &name "Alejandro Flores"
@@ -81,12 +81,12 @@ analytics:
 # Site Author
 author:
   name             : "Alejandro Flores"
-  avatar           : "linkedinpp.jpg"
-  bio              : "Ph.D. in Cheminformatics; Machine Learning; Data Visualization"
+  avatar           : "linkedinpp.png"
+  bio              : "Ph.D. in Cheminformatics; Machine Learning; Data visualization"
   location         : "Bern, Switzerland"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "https://scholar.google.com/citations?user=NJsZb0QAAAAJ&hl"
+  googlescholar    : "https://scholar.google.com/citations?user=NJsZb0QAAAAJ&hl=en"
   email            : "afloresep01@gmail.com"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -103,13 +103,13 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : "afloresep"
-  orcid            : "https://orcid.org/0000-0002-4463-6786"
+  orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          :
+  twitter          : 
   vine             :
   weibo            :
   xing             :
@@ -152,12 +152,14 @@ keep_files:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+
 
 # Markdown Processing
 kramdown:
@@ -169,13 +171,7 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
-  math_engine: mathjax  # Enable MathJax for LaTeX rendering
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
 
-# MathJax support
-mathjax: true  # Add MathJax globally
 
 # Collections
 collections:
@@ -259,7 +255,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Bern (GMT+2) # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Bern/Switzerland # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
