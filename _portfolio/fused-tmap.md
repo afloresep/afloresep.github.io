@@ -81,11 +81,11 @@ The fingerprint is basically a vector of n-dimensions in a special type of forma
 
 In order to perform the minimum value operation provided by numpy we have to convert the tmap VectorUint object into a numpy array. This is simply done by using `np.array()` function. So we do that:
 
-
+```
 df_processed = df.loc[valid_indices].copy()
 df_processed['fingerprint_vector'] = pd.Series(fingerprints, index=valid_indices)
 df_processed['fingerprint_vector'] = df_processed['fingerprint_vector'].apply(np.array)
-
+```
 
 Now we calculate the resulting vector: 
 
@@ -148,6 +148,9 @@ Fixing this and other labels with a similar function, we re-run the code:
 <img src='/images/nice_label_tmap.png'>
 That's more like it. 
 
+
+> STILL WORKING ON IT
+...
 
 ### The fusing explained: 
 This piece of code is aggregating data in a pandas DataFrame `df_processed` based on the values in the `Target_ID` column. 
