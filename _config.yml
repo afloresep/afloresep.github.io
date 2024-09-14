@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Alejandro Flores"
-  avatar           : "linkedinpp.png"
+  avatar           : "images/linkedinpp.png"
   bio              : "Ph.D. in Cheminformatics; Machine Learning; Data visualization"
   location         : "Bern, Switzerland"
   employer         :
