@@ -64,7 +64,7 @@ Observations:
 ### First Run using MAPC fingerprints
 Running a First TMAP using MAP* fingerprints. Before fusing the fingerprints I want to make sure everything runs normally and visualize the TMAP with all the data available to then change necessary parameters.
 
-Code at 
+Code [here](https://github.com/afloresep/fused_target_tmap)
 1. Import data
 2. Calculate fingerprints
 3. Run TMAP which includes: 
@@ -79,13 +79,14 @@ After a few trials and readjusting the node_size etc we have this:
 ### Merging the Fingerprints
 The fingerprint is basically a vector of n-dimensions in a special type of format used in TMAP called 'VectorUint'. Think of it as a numpy array. To merge the fingerprint one just have to select the minimum value on each index for all the fingerprints with same target ID. The resulting vector will have a combination of all the vectors -fingerprints- from the different compounds and therefore will enconde the most relevant features. 
 
-In order to perform the minimum value operation provided by numpy we have to convert the tmap VectorUint object into a numpy array. This is simply done by using np.array() function. So we do that:
+In order to perform the minimum value operation provided by numpy we have to convert the tmap VectorUint object into a numpy array. This is simply done by using `np.array()` function. So we do that:
 
 ```
 df_processed = df.loc[valid_indices].copy()
 df_processed['fingerprint_vector'] = pd.Series(fingerprints, index=valid_indices)
 df_processed['fingerprint_vector'] = df_processed['fingerprint_vector'].apply(np.array)
 ```
+
 Now we calculate the resulting vector: 
 
 ```
