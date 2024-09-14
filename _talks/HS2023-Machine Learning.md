@@ -2,7 +2,7 @@
 title: "HS2023: Machine Learning"
 collection: talks
 type: "Talk"
-permalink: /Coursework/HS2023-Machine Learning
+permalink: /talks/HS2023-Machine Learning
 date: 2024-09-19
 location: "Bern, Switzerland"
 ---
