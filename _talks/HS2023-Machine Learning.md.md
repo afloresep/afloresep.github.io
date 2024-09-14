@@ -3,7 +3,6 @@ title: "HS2023: Machine Learning"
 collection: talks
 type: "Talk"
 permalink: /talks/HS2023-Machine Learning
-venue: "Bern"
 date: 2024-09-19
 location: "Bern, Switzerland"
 ---
