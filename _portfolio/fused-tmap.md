@@ -81,7 +81,9 @@ The fingerprint is basically a vector of n-dimensions in a special type of forma
 
 In order to perform the minimum value operation provided by numpy we have to convert the tmap VectorUint object into a numpy array. This is simply done by using `np.array()` function. So we do that:
 
-
+```
 df_processed = df.loc[valid_indices].copy()
 df_processed['fingerprint_vector'] = pd.Series(fingerprints, index=valid_indices)
 df_processed['fingerprint_vector'] = df_processed['fingerprint_vector'].apply(np.array)
+```
+
