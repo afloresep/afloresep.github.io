@@ -36,7 +36,9 @@ The full dataset and code can be found [here](https://github.com/afloresep/fused
 | Target_Taxonomy      | object    | 38370          | 0              |
 | Target_organism      | object    | 38370          | 0              |
 | Target_type          | object    | 38370          | 0              |
-- Apparently almost 1/3 of the entries are missing the `target_protein_class`. Oh well, there's not much we can do about it and also it is not that interesting so we will just let it be. 
+
+Apparently almost 1/3 of the entries are missing the `target_protein_class`. Oh well, there's not much we can do about it and also it is not that interesting so we will just let it be. 
+
 ### Unique Value Counts
 
 | Column               | Unique Values |
@@ -97,9 +99,9 @@ Two types of molecular fingerprints are supported:
 
 The `encode_smiles` function is responsible for generating these fingerprints from SMILES strings.
 
-One thing I spent some time on was reducing the computational time for calculating the fingerprints. The code usually took around 13.5 minutes to run from start to end. This meant that whenever I wanted to change something on the, let's say, layout (e.g. color of the background) I would have to wait 14 minutes just to check the results! So I put some time to save the fingerprints calculated just once and then performing the rest of the code using the previously vectors(_or fingerprints_). This reduced the time from ~14 minutes to under 1. In other words, 1 hour for every 4 times I wanted to change something about the labels, layout, background, sizes... 
-It was definitively worth it. 
-To do this we use this piece of code:
+I spent some time optimizing the computation of fingerprints to reduce the overall runtime. Initially, the code would take about 13.5 minutes to execute from start to finish. This meant that any time I wanted to make a small change—like adjusting the layout or background color—I had to wait almost 14 minutes just to see the results. To avoid this, I focused on saving the computed fingerprints once and reusing them, rather than recalculating them each time. This optimization reduced the runtime from nearly 14 minutes to under 1 minute. In other words, I saved almost an hour for every four design tweaks I wanted to make, such as changing labels, layout, or sizes. It was definitely worth the effort.
+
+Here’s the code that made this possible: 
 ```
 # Define the path for saving/loading fingerprints
 fingerprints_file = Path(r'C:\Users\...\fused_fingerprints.pkl')
