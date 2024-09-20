@@ -47,7 +47,7 @@ So for Table 1, our hash becomes: **1010***0001*
 We insert this binary string into the [trie](The ****Trie data structure**** is a tree-like data structure used for storing a dynamic set of strings.). Each bit determines which path to take at each level.
 
 <div style="text-align: center;">
-  <img src='/images/trie-construction.png' height="450px">
+  <img src='/images/trie-construction.png' height="350px">
 </div>
 
 
