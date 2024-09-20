@@ -2,6 +2,7 @@
 title: 'LSH Forest'
 date: 2024-09-11
 permalink: /posts/2024/09/LSH-Forest/
+layout: default
 tags:
   - TMAP
 ---
