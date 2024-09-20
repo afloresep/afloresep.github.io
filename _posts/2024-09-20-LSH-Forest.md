@@ -2,7 +2,6 @@
 title: 'LSH Forest'
 date: 2024-09-11
 permalink: /posts/2024/09/LSH-Forest/
-layout: default
 tags:
   - TMAP
 ---
@@ -47,7 +46,10 @@ So for Table 1, our hash becomes: **1010***0001*
 5. Trie construction
 We insert this binary string into the [trie](The ****Trie data structure**** is a tree-like data structure used for storing a dynamic set of strings.). Each bit determines which path to take at each level.
 
-<img src='/images/trie-construction.png'>
+<div style="text-align: center;">
+  <img src='/images/trie-construction.png' width="400px">
+</div>
+
 
 6. Searching for Similar Items: 
 When searching for ismilar items, we follow the same process. 
@@ -57,11 +59,16 @@ When searching for ismilar items, we follow the same process.
 	4. Convert to binary
 	5. Traverse the trie
 Once we reach a leaf node, all the items stored at this leaf and nearby leaves are considered **candidate nearest neighbours**. 
-<img src='/afloresep.github.io/images/image.png'>
+<div style="text-align: center;">
+    <img src='/afloresep.github.io/images/image.png' width="400px">
+</div>
 
 ### When querying, traverse the trees to find candidate nearest neighbours. 
 Since we have several LSH tables, the algorithm actually uses all the LSH tables simultaneously, rather than selecting a single table. This **improves** the accuracy of the approximate nearest neighbour search. From each table, the algorithm collects a set of candidate nearest neighbours. The final set of candidate nearest neighbors is the union of candidates from all tables.
-<img src='/images/image-1.png'>
+
+<div style="text-align: center;">
+    <img src='/images/image-1.png' width="400px">
+</div>
 
 Bibliography: 
 - **[Mining of Massive Datasets](http://infolab.stanford.edu/~ullman/mmds/book0n.pdf)** - Jure Leskovec, Anand Rajaraman & Jeffrey D. Ullman 
