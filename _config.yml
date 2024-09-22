@@ -181,6 +181,12 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
+  computer_vision:
+    output: true
+    permalink: /:collection/:path/
+  coursework:
+    output: true
+    permalink: /:collection/:path/
   portfolio:
     output: true
     permalink: /:collection/:path/
@@ -244,7 +250,25 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-
+# _computer_vision
+  - scope:
+      path: ""
+      type: computer_vision
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+# _coursework
+  - scope:
+      path: ""
+      type: coursework
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+      
 # Sass/SCSS
 sass:
   sass_dir: _sass

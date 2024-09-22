@@ -1,15 +1,6 @@
-# The following is the order of the links in the header of the website.
-#
-# Changing the order here will adjust the order and you can also add additional
-# links. Removing a link prevents it from showing in the header, but does not
-# prevent it from being included in the site.
-
 main:
-  # - title: "Publications"
-  #   url: /publications/
-
-  # - title: "Coursework"
-  #   url: /coursework/    
+  - title: "Coursework"
+    url: /coursework/    
     
   - title: "Portfolio"
     url: /portfolio/
@@ -17,8 +8,8 @@ main:
   - title: "Blog Posts"
     url: /year-archive/
     
-  - title: "Coursework"
-    url: /coursework/
-    
   - title: "CV"
     url: /cv/
+    
+  - title: "Computer Vision"
+    url: /computer-vision/
