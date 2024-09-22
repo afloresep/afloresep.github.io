@@ -2,7 +2,7 @@
 title: "Projection Models"
 excerpt: "First part of the Computer Vision course."
 collection: computer_vision
-permalink: /computer-vision/projection-models/
+permalink: /computer-vision/Projection-Models/
 ---
 
 First part of the HS2024-Computer Vision course. 
