@@ -261,7 +261,7 @@ defaults:
   # _coursework
   - scope:
       path: ""
-      type: computer_vision
+      type: coursework
     values:
       layout: single
       author_profile: true
