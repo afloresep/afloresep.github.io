@@ -1,5 +1,3 @@
-Certainly! I'll update the internal links to work with Jekyll-style anchors and replace the callouts with notices. Here's the revised version:
-
 ---
 title: "Projection Models"
 excerpt: "First part of the Computer Vision course."
