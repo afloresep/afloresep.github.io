@@ -9,6 +9,8 @@ author_profile: true
 
 <p>Welcome to my Coursework section. Here you'll find various projects and articles related to image processing, machine learning for visual tasks, and artificial intelligence in computer vision.</p>
 
-{% for post in site.computer_vision %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="grid__wrapper">
+  {% for post in site.computer_vision %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div>

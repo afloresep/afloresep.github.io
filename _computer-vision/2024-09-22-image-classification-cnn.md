@@ -2,7 +2,13 @@
 title: "Image Classification with Convolutional Neural Networks"
 excerpt: "A project implementing a CNN for image classification using PyTorch."
 collection: computer_vision
+permalink: /computer-vision/image-classification-cnn/
 ---
+
+## Image Classification with Convolutional Neural Networks
+
+In this project, I implemented a Convolutional Neural Network (CNN) for image classification using PyTorch. The model was trained on the CIFAR-10 dataset and achieved an accuracy of 85% on the test set.
+
 
 ## Image Classification with Convolutional Neural Networks
 

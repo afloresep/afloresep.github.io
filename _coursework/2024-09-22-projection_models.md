@@ -1,11 +1,14 @@
 ---
-layout: archive
-title: 'Projection Models'
-permalink: /coursework/Projection-Models/
-author_profile: true
-tags:
-  - Computer Vision
+title: "Projection Models"
+excerpt: "First part of the Computer Vision course."
+collection: coursework
+permalink: /coursework/projection-models/
 ---
+
+## Image Classification with Convolutional Neural Networks
+
+In this project, I implemented a Convolutional Neural Network (CNN) for image classification using PyTorch. The model was trained on the CIFAR-10 dataset and achieved an accuracy of 85% on the test set.
+
 
 1. [[#Basic Camera Design]]
 2. [[#Pinhole Camera]]
@@ -19,7 +22,7 @@ tags:
 7. [[#Homogeneous coordinates]]
 	7.1. [[#The Linearity problem in Cartesian Coordinates]]
 	7.2. [[#How does linearity matter?]]
-  
+
 ## Basic Camera Design
 Idea 1: Simple Film Placement
 The initial concept involves placing a piece of film in front of an object. However, this approach presents a significant problem:
