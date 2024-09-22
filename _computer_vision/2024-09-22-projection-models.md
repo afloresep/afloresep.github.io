@@ -11,9 +11,9 @@ First part of the HS2024-Computer Vision course.
 2. [Pinhole Camera](#pinhole-camera)
 3. [3D to 2D Projection](#3d-to-2d-projection)
 4. [Perspective Projection](#perspective-projection)
-   4.1. [Modelling Perspective Projection](#modelling-perspective-projection)
-   4.2. [The Coordinate System](#the-coordinate-system)
-   4.3. [Projection Equation](#projection-equation)
+   - 4.1. [Modelling Perspective Projection](#modelling-perspective-projection)
+   - 4.2. [The Coordinate System](#the-coordinate-system)
+   - 4.3. [Projection Equation](#projection-equation)
 5. [Vanishing Points, Lines, and Planes](#vanishing-points-lines-and-planes)
 6. [More complex projections](#more-complex-projections)
 7. [Homogeneous coordinates](#homogeneous-coordinates)
@@ -33,6 +33,7 @@ To address the issues with the first idea, we introduce a barrier to block most 
 This barrier, with a small opening, forms the basis of our next concept: the Pinhole Camera.
 
 ## Pinhole Camera
+![image](https://github.com/user-attachments/assets/23c3b57e-4331-404d-99fb-217fc053cd38)
 
 A Pinhole camera captures a pencil of rays - all rays passing through a single point. This point is known by several names:
 - Aperture
@@ -61,6 +62,8 @@ The image is formed on the image plane.
 ## Perspective Projection
 
 #### Modelling Perspective Projection
+![image](https://github.com/user-attachments/assets/94e4d50c-2510-4ed4-87f1-98c2fa612a12)
+
 To compute the projection of *P'* of a scene point *P*, 
 1. Form the **visual ray** connecting *P* to the camera center *O* and 
 2. find where it **intersects** the image plane. 
@@ -118,6 +121,7 @@ $f$ = distance between the plane and the origin center also known as focal lengt
 $p$ = *projection of P used to denote the coordinate as only on the image plane. Also can be written as $\pi [P]$, where P is again the three coordinates points and $\pi$ for projection.*
 
 ## Vanishing Points, Lines, and Planes
+![image](https://github.com/user-attachments/assets/f1021e98-6173-4712-ab5f-9576df9443cc)
 
 A **vanishing point** is a point on the image plane where the 2D perspective projections of mutually parallel lines in 3D space appear to **converge**.   
 
