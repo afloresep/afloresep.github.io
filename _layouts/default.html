@@ -10,6 +10,16 @@ layout: compress
     {% include head.html %}
     {% include head/custom.html %}
 
+    <!-- MathJax Configuration -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        }
+      };
+    </script>
     <!-- MathJax Script for LaTeX Rendering -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script type="text/javascript" id="MathJax-script" async
@@ -23,7 +33,6 @@ layout: compress
     </script>
     
   </head>
-
   <body>
 
     {% include browser-upgrade.html %}
