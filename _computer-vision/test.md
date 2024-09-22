@@ -1,8 +1,12 @@
 ---
-title: "Image Classification with Convolutional Neural Networks"
-excerpt: "A project implementing a CNN for image classification using PyTorch."
-collection: computer_vision
+layout: archive
+title: 'Projection Models'
+permalink: /computer-vision/Projection-Models/
+author_profile: true
+tags:
+  - Computer Vision
 ---
+
 
 ## Image Classification with Convolutional Neural Networks
 
