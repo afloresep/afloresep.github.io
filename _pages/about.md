@@ -24,7 +24,7 @@ This section tracks the classes I’m currently taking or have completed, both t
   
   These topics are explored through a probabilistic framework, with a strong emphasis on optimization techniques throughout the course.  
   
-  - **[HS2024-0: Computer Vision](https://www.cvg.unibe.ch/teaching/course/CV)**  
+- **[HS2024-0: Computer Vision](https://www.cvg.unibe.ch/teaching/course/CV)**  
   This course covers fundamental topics in computer vision. The course will provide an introduction to image formation, image processing, feature detection, segmentation, multiple view geometry and 3D reconstruction, motion, object recognition and classification.
 
   Learning outcome:
@@ -38,11 +38,11 @@ This section tracks the classes I’m currently taking or have completed, both t
 
 - **[HS2024-0: Applied Optimization]()**
   This course offers an applied introduction, covering a broad range of practically important topics, as for instance:
-- Mathematical modeling of real-world problems
-- Theory of convexity
-- Lagrange dualism
-- Algorithms for unconstrained and constrained optimization with inequalities (e.g. gradient descent, Newton’s method, trust-region methods, active set approaches, interior point methods, …). 
-  A major goal of the course is to train students in appropriately modelling optimization problems, and identifying suitable optimization algorithms, based on the understanding of their specific strengths and weaknesses.
+  - Mathematical modeling of real-world problems
+  - Theory of convexity
+  - Lagrange dualism
+  - Algorithms for unconstrained and constrained optimization with inequalities (e.g. gradient descent, Newton’s method, trust-region methods, active set approaches, interior point methods, …). 
+    A major goal of the course is to train students in appropriately modelling optimization problems, and identifying suitable optimization algorithms, based on the understanding of their specific strengths and weaknesses.
 
     **Note:** All material posted here reflects my own work and thoughts. Naturally, I won’t share any restricted resources or information meant solely for enrolled students.
 
