@@ -11,5 +11,5 @@ main:
   - title: "CV"
     url: /cv/
     
-  - title: "Computer Vision"
-    url: /computer-vision/
+  # - title: "Computer Vision"
+  #   url: /computer-vision/

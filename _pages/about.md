@@ -11,7 +11,7 @@ PhD in Chemoinformatics at the University of Bern, working with Reymond's group.
 
 In addition to my primary research, I am also exploring algorithms, data structures, and computer vision, aiming to expand my skill set and apply these concepts to various challenges in my field. This site serves as a platform to document my coursework, projects, and reflections as I navigate my academic and professional journey
 
-Also, Someone once told me that in order to think, you have to write. So here’s my attempt.
+Also, someone once told me that in order to think, you have to write. So here’s my attempt.
 
 ### Coursework
 This section tracks the classes I’m currently taking or have completed, both through formal University courses and self-study. I’ll create subpages for individual courses or topics.
@@ -44,7 +44,14 @@ This section tracks the classes I’m currently taking or have completed, both t
   - Algorithms for unconstrained and constrained optimization with inequalities (e.g. gradient descent, Newton’s method, trust-region methods, active set approaches, interior point methods, …). 
     A major goal of the course is to train students in appropriately modelling optimization problems, and identifying suitable optimization algorithms, based on the understanding of their specific strengths and weaknesses.
 
-    **Note:** All material posted here reflects my own work and thoughts. Naturally, I won’t share any restricted resources or information meant solely for enrolled students.
+  Learning outcome: 
+  - Understand which classes of optimization problems are easy/hard to solve.
+  - Model or re-formulate problems in a way that they become easier (e.g. convex).
+  - Understand the fundamental ideas behind unconstrained, constrained and mixed-integer optimization.
+  - Implement and use various optimization algorithms (programming exercises are in C++).
+  - Understand and tune the parameters and output statistics that are exposed by optimization packages.
+    
+**Note:** All material posted here reflects my own work and thoughts. Naturally, I won’t share any restricted resources or information meant solely for enrolled students.
 
 ### Portfolio
 This section will document any projects I undertake during my PhD or on my own. It serves two main purposes:
