@@ -7,8 +7,6 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
-
 Education
 ======
 * Ph.D in Chemoinformatics: Big Data and AI, Bern University at Reymond's Group, 2024-2028 (expected)
@@ -37,29 +35,3 @@ Work experience
   *  Focused on investigating the potential connection between malaria and multiple myeloma (MM). The work has culminated in the presentation of our findings at the XV Congress of Student Research in Health Science
   *  Supervisor: María Linares
   
-Skills
-======
-* Python
-* Machine Learning 
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
