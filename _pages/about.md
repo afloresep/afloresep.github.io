@@ -16,7 +16,7 @@ Also, Someone once told me that in order to think, you have to write. So here’
 ### Coursework
 This section tracks the classes I’m currently taking or have completed, both through formal University courses and self-study. I’ll create subpages for individual courses or topics.
 
-- **[HS2023-0: Machine Learning](https://www.cvg.unibe.ch/teaching/course/1)**  
+- **[HS2024-0: Machine Learning](https://www.cvg.unibe.ch/teaching/course/1)**  
   According to the course description, this class covers fundamental topics in machine learning and pattern recognition. It provides an introduction to:
   - Supervised learning
   - Unsupervised learning
@@ -24,7 +24,27 @@ This section tracks the classes I’m currently taking or have completed, both t
   
   These topics are explored through a probabilistic framework, with a strong emphasis on optimization techniques throughout the course.  
   
-  **Note:** All material posted here reflects my own work and thoughts. Naturally, I won’t share any restricted resources or information meant solely for enrolled students.
+  - **[HS2024-0: Computer Vision](https://www.cvg.unibe.ch/teaching/course/CV)**  
+  This course covers fundamental topics in computer vision. The course will provide an introduction to image formation, image processing, feature detection, segmentation, multiple view geometry and 3D reconstruction, motion, object recognition and classification.
+
+  Learning outcome:
+  - Understand how cameras capture images of a scene Implement
+  - Implement and use:
+    - algorithms for image processing such as image filtering and image segmentation
+    - algorithms for object detection (such as faces) and recognition
+    - algorithms for 3D reconstruction (e.g., from stereo systems) 
+  Describe the mathematics underpinning each method and know how to adapt it to new scenarios.
+    
+
+- **[HS2024-0: Applied Optimization]()**
+  This course offers an applied introduction, covering a broad range of practically important topics, as for instance:
+- Mathematical modeling of real-world problems
+- Theory of convexity
+- Lagrange dualism
+- Algorithms for unconstrained and constrained optimization with inequalities (e.g. gradient descent, Newton’s method, trust-region methods, active set approaches, interior point methods, …). 
+  A major goal of the course is to train students in appropriately modelling optimization problems, and identifying suitable optimization algorithms, based on the understanding of their specific strengths and weaknesses.
+
+    **Note:** All material posted here reflects my own work and thoughts. Naturally, I won’t share any restricted resources or information meant solely for enrolled students.
 
 ### Portfolio
 This section will document any projects I undertake during my PhD or on my own. It serves two main purposes:

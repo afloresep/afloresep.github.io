@@ -8,8 +8,8 @@ main:
   # - title: "Publications"
   #   url: /publications/
 
-  - title: "Coursework"
-    url: /coursework/    
+  # - title: "Coursework"
+  #   url: /coursework/    
     
   - title: "Portfolio"
     url: /portfolio/
@@ -17,8 +17,8 @@ main:
   - title: "Blog Posts"
     url: /year-archive/
     
+  - title: "Coursework"
+    url: /coursework/
+    
   - title: "CV"
     url: /cv/
-    
-  # - title: "Guide"
-  #   url: /markdown/
