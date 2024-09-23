@@ -87,15 +87,13 @@ $$
 This method looks at every example in the entire training set on every step, and is call is called **[[batched gradient descent]]**
 
 There is an alternative to batch gradient descent that also works very well.
-	Loop {
-		for $i=1$ to $m$, {
+
+Loop for $i=1$ to $m$,
 			
-		$$
-		\theta_j := \theta_j - \alpha(y^i - h_\theta(x^i))x^i_j \ \ (for\ \ every \ \ j)
-		$$
+$$
+\theta_j := \theta_j - \alpha(y^i - h_\theta(x^i))x^i_j \ \ (for\ \ every \ \ j)  
+$$
 		
-		}
-	}
 In this algorithm, we repeatedly run through the training set, and each time we encounter a training example, we update the parameters according to the gradient of the error with respect to that single training example only. This algorithm is called [[Stochastic Gradient Descent]]
 
 Whereas batch gradient descent has to scan through the entire training set before taking a single step—a costly operation if m is large—stochastic gradient descent can start making progress right away, and continues to make progress with each example it looks at. Often, stochastic gradient descent gets θ “close” to the minimum much faster than batch gradient descent.
