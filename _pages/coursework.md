@@ -39,8 +39,10 @@ Future posts will cover other critical aspects of the course, including:
 These notes will form a comprehensive resource for anyone interested in the technical foundations and applications of computer vision.
 
 ## Machine Learning
-Machine learning is the driving force behind much of modern AI, powering systems that can learn from data, recognize patterns, and make informed decisions. I will soon be adding a section dedicated to my work in machine learning, including:
-- 1. [Supervised learning](https://afloresep.github.io/machine-learning/supervised-learning/)
+I will be documenting my progress in **HS2024 - Machine Learning**, a course offered by Universität Bern, which covers key concepts in Machine Learning.
+
+Machine learning is the driving force behind much of modern AI, powering systems that can learn from data, recognize patterns, and make informed decisions. 
+- [Supervised learning](https://afloresep.github.io/machine-learning/supervised-learning/)
 - Unsupervised learning
 - Reinforcement learning
 These topics are explored through a probabilistic framework, with a strong emphasis on optimization techniques throughout the course.
@@ -48,7 +50,9 @@ These topics are explored through a probabilistic framework, with a strong empha
 Also expect detailed posts covering essential algorithms such as **Support Vector Machines**, **Decision Trees**, and **Convolutional Neural Networks (CNNs)**.
 
 ## Applied Optimization
-An applied introduction, covering a broad range of practically important topics, as for instance: Mathematical modeling of real-world problems, theory of convexity, Lagrange dualism, algorithms for unconstrained and constrained optimization with inequalities (e.g. gradient descent, Newton’s method, trust-region methods, active set approaches, interior point methods, …).
+I will be documenting my progress in **HS2024 - Applied Optimization**, a course offered by Universität Bern.
+The course consists of am applied introduction, covering a broad range of practically important topics, as for instance: Mathematical modeling of real-world problems, theory of convexity, Lagrange dualism, algorithms for unconstrained and constrained optimization with inequalities (e.g. gradient descent, Newton’s method, trust-region methods, active set approaches, interior point methods, …).
+
 Hopefully by the end of the course I will be able to: 
 - Understand which classes of optimization problems are easy/hard to solve.
 - Model or re-formulate problems in a way that they become easier (e.g. convex).
@@ -56,7 +60,9 @@ Hopefully by the end of the course I will be able to:
 - Implement and use various optimization algorithms (programming exercises are in C++).
 - Understand and tune the parameters and output statistics that are exposed by optimization packages.
 
+### Course outline: 
 1. [Introduction and Fundamental Definitions](https://afloresep.github.io/applied-optimization/fundamental-definitions/)
+
 
 ---
 

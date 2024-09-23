@@ -11,7 +11,17 @@ For this section we will take as example predicting price for houses based on pa
 ### **Notation**
 - $x$: Input data (e.g. Area). Can be vector, scalar... 
 - $x^{(i)}$: X in index $i$. We don't use sub index as that is used to indicate the data on input data with more than one dimension. 
-	For example. If input data is 2D vector: $x = \begin{bmatrix} area \\ bedrooms\\\end{bmatrix}$ then $x_1$ will be $area$ and $x_2$ $bedrooms$ 
+	For example. If input data is 2D vector: 
+
+$$
+x =  
+\begin{bmatrix}
+area \\
+bedroom \\
+\end{bmatrix}
+ $$
+ 
+  then $x_1$ will be $area$ and $x_2$ $bedrooms$ 
 - $y$: Output data (e.g. Price). 
 The goal of this course and ML in general is to find a function $h$ with **parameters** weights $\theta$ that predicts $y$. 
 
@@ -76,16 +86,17 @@ $$
 $$
 This method looks at every example in the entire training set on every step, and is call is called **[[batched gradient descent]]**
 
-- There is an alternative to batch gradient descent that also works very well.
+There is an alternative to batch gradient descent that also works very well.
 	Loop {
 		for $i=1$ to $m$, {
+			
 		$$
 		\theta_j := \theta_j - \alpha(y^i - h_\theta(x^i))x^i_j \ \ (for\ \ every \ \ j)
 		$$
 		
 		}
 	}
-	In this algorithm, we repeatedly run through the training set, and each time we encounter a training example, we update the parameters according to the gradient of the error with respect to that single training example only. This algorithm is called [[Stochastic Gradient Descent]]
+In this algorithm, we repeatedly run through the training set, and each time we encounter a training example, we update the parameters according to the gradient of the error with respect to that single training example only. This algorithm is called [[Stochastic Gradient Descent]]
 
 Whereas batch gradient descent has to scan through the entire training set before taking a single step—a costly operation if m is large—stochastic gradient descent can start making progress right away, and continues to make progress with each example it looks at. Often, stochastic gradient descent gets θ “close” to the minimum much faster than batch gradient descent.
 
