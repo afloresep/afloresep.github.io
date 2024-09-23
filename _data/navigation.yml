@@ -11,8 +11,8 @@ main:
   - title: "CV"
     url: /cv/
 
-  - title: "Machine Learning"
-    url: /machine-learning/
+  # - title: "Machine Learning"
+  #   url: /machine-learning/
 
-  - title: "Applied Optimization"
-    url: /applied-optimization/
+  # - title: "Applied Optimization"
+  #   url: /applied-optimization/
