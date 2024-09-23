@@ -5,31 +5,15 @@ collection: applied_optimization
 permalink: /applied-optimization/fundamental-definitions/
 ---
 
-## Course Outline
-
-Part I: Theory 
-1.1. [Fundamental definitions](#fundamental-definitions)
-1.2. Convex sets and functions 
-1.3. Lagrange duality & KKT optimality conditions
-
-Part II: Algorithms 
-2.1. Focus on continuous optimization 
-2.2. Unconstrained optimization (e.g. gradient descent, Newton, trust region) 
-2.3. Equality constrained optimization (e.g. penalty, augmented Lagrangian) 
-2.4. Inequality constrained optimization (e.g. active set, interior point)
-
-Part III: Advanced Optimization.
-e.g. mixed-integer optimization and SDP relaxations 
-
 ## Fundamental definitions 
 
 A mathematical optimization problem, or just optimization problem, has the form: 
 
-Definition of a optimization problem
-{: .notice--info}
 
-minimize $f_0(x)$
-subject to $f_i(x) \leq b_i \,, \ i =1,...,m$
+> [!NOTE]
+> Definition of a optimization problem
+> minimize $f_0(x)$
+> subject to $f_i(x) \leq b_i \,, \ i =1,...,m$
 
 Where:
 - (vector) $x = (x1, ...,x_n)$ is the optimization variable of the problem
@@ -37,7 +21,7 @@ Where:
 - (function) $f_i : R^n \rightarrow R, \ \ i = 1,...,m$ are the (inequality) constraint functions
 - (constants) $b_1,...,b_m$ are the limits, or bounds, for the constraints
 
-A vector $x^$ is called optimal, or a solution of the problem, if it has the smallest objective value among all vectors that satisfy the constraints. In other words, solution $x^$ is a point of the feasible set where $f_0$ gets minimal:  $x^* \in F \ \ and \ \ f_0(x^*) \leq f_0(z), \ \ \forall z \in F$
+A vector $x^{\*}$ is called optimal, or a solution of the problem, if it has the smallest objective value among all vectors that satisfy the constraints. In other words, solution $x^\*$ is a point of the feasible set where $f_0$ gets minimal:  $x^\* \in F \ \ and \ \ f_0(x^\*) \leq f_0(z), \ \ \forall z \in F$
 
 ### Classes of Optimization Problems
 
@@ -72,12 +56,12 @@ Objectives: maximize expected return or minimize risk
 
 General optimization problems are very difficult to solve, today only is possible for small problems ($n, m \leq 50$). Methods typically involve some compromise, e.g. very long computation time or not always finding the solution
 However, exceptions that be solved efficiently and reliably are: 
-- Linear [least-squares](#linear-least-squares-lls) problems
+- Linear least-squares problems
 - Linear programming problems
 - Convex optimization problems 
 
 #### LINEAR LEAST-SQUARES (LLS) 
-minimize $||A_x - b||^2_2$ . Which can be seen as $({l^2 norm})^2$  (removing square root of [L2-Norm](#linear-least-squares-lls)) 
+minimize $||A_x - b||^2_2$ . Which can be seen as $({l^2 norm})^2$  (removing square root of **L2-Norm**) 
 (matrix) $A_x \in R^{k\times n}$ 
 (vector) $b \in R^{k}$
 
@@ -110,15 +94,18 @@ f_0(x) &= [(Ax - b)^T (Ax - b)] = [(A^T x^T - b^T) (Ax - b)] \\ &= [x^T A^T A x 
 \end{align} 
 $$
 
-Property of matrix transposition
-{: .notice--info}
-For any matrices $P$ and $Q$, $(PQ)^T = Q^T P^T$
-In this example: 
-$(A_x - b)^T = (A^T x^T - b^T)$
-For any matrix $M$, $M$ and $M^T$ are equal when $M$ is 1x1 (a scalar).
-$(x^T A^T b)^T = b^T (A^T)^T x = b^T A x$
+
+> [!NOTE]
+> Property of matrix transposition
+>For any matrices $P$ and $Q$, $(PQ)^T = Q^T P^T$
+>In this example: 
+>$(A_x - b)^T = (A^T x^T - b^T)$
+>For any matrix $M$, $M$ and $M^T$ are equal when $M$ is 1x1 (a scalar).
+>$(x^T A^T b)^T = b^T (A^T)^T x = b^T A x$
+
 
 Now we apply the derivative and setting this equal to zero
+
 $$
 \begin{align} \nabla_x f_0(x) &= \nabla_x [x^TA^TAx - 2x^TA^Tb + b^Tb] \end{align}
 $$
@@ -126,19 +113,24 @@ $$
 $\nabla (x^T A^T Ax)$ = $2A^T A x$
 To find the derivative, we need to use the rules of matrix calculus.
 
-Key Rule
-{: .notice--warning}
-$\frac {\partial}{\partial x}(x^T B x) =  (B + B^T)x$
+
+> [!NOTE]
+> Key Rule for solving this part:  
+> $\frac {\partial}{\partial x}(x^T B x) =  (B + B^T)x$
+
 
 In our case, $B = A^T A$. So we have:
+
 $$
 \frac {\partial}{\partial x}(A^TAx + (A^TA)^Tx)
 $$
 
 Now, let's look at $(A^T A)^T:$
+
 $$
 (A^T A)^T = A^T (A^T)^T = A^T A
 $$
+
 - This is because $A^TA$ is symmetric.
 - Substituting this back in: 
 
