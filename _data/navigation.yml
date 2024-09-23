@@ -4,15 +4,15 @@ main:
     
   - title: "Portfolio"
     url: /portfolio/
-        
+
   - title: "Blog Posts"
     url: /year-archive/
-    
+
   - title: "CV"
     url: /cv/
-    
+
   - title: "Machine Learning"
-   url: /machine-learning/
+    url: /machine-learning/
 
   - title: "Applied Optimization"
-   url: /applied-optimization/
+    url: /applied-optimization/
