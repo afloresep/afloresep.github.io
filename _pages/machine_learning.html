@@ -1,0 +1,16 @@
+---
+layout: archive
+title: "Machine Learning"
+permalink: /machine-learning/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p>Welcome to my Machine Learning section. Here you'll find all the projects and notes on courses or books related to this topic.</p>
+
+<div class="grid__wrapper">
+  {% for post in site.machine_learning %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div>
