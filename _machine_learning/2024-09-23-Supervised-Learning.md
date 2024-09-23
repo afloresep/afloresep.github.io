@@ -1,8 +1,8 @@
 ---
 title: "Fundamental definitions"
 excerpt: "First part of the Applied Optimization course."
-collection: applied_optimization
-permalink: /applied-optimization/fundamental-definitions/
+collection: machine_learning
+permalink: /machine-learning/supervised-learning/
 ---
 
 ## Course Outline

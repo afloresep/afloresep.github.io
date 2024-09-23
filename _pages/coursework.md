@@ -4,7 +4,7 @@ permalink: /coursework/
 author_profile: true  
 ---
 
-Welcome to the coursework section! Here, you'll find my collection of notes, articles, and reflections on various topics related to **Machine Learning (ML)**, **Artificial Intelligence (AI)**, and **Computer Vision (CV)**. These resources are aimed at documenting my learning journey, especially during my PhD, and are meant to serve as a study guide for anyone delving into these exciting fields. 
+This is the coursework section. Here, you'll find my collection of notes, articles, and reflections on various topics related to **Machine Learning (ML)**, **Artificial Intelligence (AI)**, and **Computer Vision (CV)**. These resources are aimed at documenting my learning journey, especially during my PhD, and are meant to serve as a study guide for anyone delving into these exciting fields. 
 
 ## TMAP
 A significant portion of my PhD work revolves around **TMAP**, a versatile tool in my research. To deepen my understanding of this tool, I’ve dedicated some time to exploring its concepts and implementation. The key topics involved, such as **Locality-Sensitive Hashing (LSH)** and **Min-Hashing**, are critical components of the larger framework.
@@ -55,6 +55,8 @@ Hopefully by the end of the course I will be able to:
 - Understand the fundamental ideas behind unconstrained, constrained and mixed-integer optimization.
 - Implement and use various optimization algorithms (programming exercises are in C++).
 - Understand and tune the parameters and output statistics that are exposed by optimization packages.
+
+1. [Introduction and Fundamental Definitions]()
 
 ---
 
