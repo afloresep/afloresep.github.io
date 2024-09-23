@@ -40,7 +40,7 @@ These notes will form a comprehensive resource for anyone interested in the tech
 
 ## Machine Learning
 Machine learning is the driving force behind much of modern AI, powering systems that can learn from data, recognize patterns, and make informed decisions. I will soon be adding a section dedicated to my work in machine learning, including:
-- Supervised learning
+- 1. [Supervised learning](https://afloresep.github.io/machine-learning/supervised-learning/)
 - Unsupervised learning
 - Reinforcement learning
 These topics are explored through a probabilistic framework, with a strong emphasis on optimization techniques throughout the course.
@@ -56,7 +56,7 @@ Hopefully by the end of the course I will be able to:
 - Implement and use various optimization algorithms (programming exercises are in C++).
 - Understand and tune the parameters and output statistics that are exposed by optimization packages.
 
-1. [Introduction and Fundamental Definitions]()
+1. [Introduction and Fundamental Definitions](https://afloresep.github.io/applied-optimization/fundamental-definitions/)
 
 ---
 
