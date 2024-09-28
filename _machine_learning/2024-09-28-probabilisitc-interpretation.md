@@ -27,7 +27,7 @@ Example #1
 Let's assume that the $\epsilon^{(i)}$ are distributed IID according to a **Gaussian distribution** (a.k.a. Normal distribution) with mean zero and some **variance** $\sigma^2$. 
 A way of writing  just this is "$\epsilon{(i)} ~\mathcal{N}(0, \sigma^2)$"
 
-<img width="519" alt="image" src="https://github.com/user-attachments/assets/15368b19-e1fc-4546-bf71-f18632f31a8f">
+<img width="519" alt="image" src="https://github.com/user-attachments/assets/15368b19-e1fc-4546-bf71-f18632f31a8f">{: .align-center
 
 
 The **density** of $\epsilon^{(i)}$ is given by:
@@ -49,8 +49,8 @@ $$
      
 $$
 
-- $p(y^{(i)} | x^{(i)}; \theta)$: indicates that this is the distribution of $y^{(i)}$ given $x^{(i)}$ and parameterized by $θ$
-	 - We should not condition on $\theta\ since is not a random variable. 
+$p(y^{(i)} | x^{(i)}; \theta)$: indicates that this is the distribution of $y^{(i)}$ given $x^{(i)}$ and parameterized by $θ$
+We should not condition on $\theta\ since is not a random variable. 
 
 If we apply the posterior probability in all our samples we have
 
@@ -67,7 +67,7 @@ $$
 Under the IID assumption, the **joint** probability of observing all the data ($y$) given ($x$) and parameterized by $\theta$ is the **product** ($\prod$) of the individual probabilities, $p(y^{(i)}|x^{(i)};\theta)$, (since the data points are independent). 
 {: .notice--success}
 
-Now, if we see this function as $y$ and $x$ being fixed and $\theta$ unknown, we call it the **likelihood function** ($L(\theta$)). This function indicates **how likely are we to observe our data $y$, given our predictors $x$'s and $\theta$** and is equal to $p(y | X; \theta$) which is a PDF.
+Now, if we see this function as $y$ and $x$ being fixed and $\theta$ unknown, we call it the **likelihood function** ($L(\theta$)). This function indicates **how likely are we to observe our data $y$, given our predictors $x$'s and $\theta$** and is equal to $p(y|X;\theta)$ which is a PDF.
 
 $$
 L(\theta) = L(\theta;X, \vec y) = p(\vec y | X;\theta) = \prod^m_{i=1}p(y^{(i)}|x^{(i)};\theta)
