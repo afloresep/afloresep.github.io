@@ -62,7 +62,7 @@ $$
 p(y^{(i)}, ..., y^{(m)} | x^{1}, ..., x^{m}; \theta) = \prod^m_{i=1}p(y^{(i)}|x^{(i)};\theta)
 $$
 
-Under the IID assumption, the **joint** probability of observing all the data ($y$) given ($x$) and parameterized by $\theta$ is the **product** ($\prod$) of the individual probabilities, $p(y^{(i)}|x^{(i)};\theta)$, (since the data points are independent). 
+Under the IID assumption, the **joint** probability of observing all the data ($y$) given ($x$) and parameterized by $\theta$ is the **product** ($\prod$) of the individual probabilities, $p(y^{(i)}/x^{(i)};\theta)$, (since the data points are independent). 
 {: .notice--success}
 
 Now, if we see this function as $y$ and $x$ being fixed and $\theta$ unknown, we call it the **likelihood function** ($L(\theta$)). This function indicates **how likely are we to observe our data $y$, given our predictors $x$'s and $\theta$** and is equal to probability of $y$ dependent on $x$ which is a PDF.
