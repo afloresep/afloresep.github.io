@@ -64,7 +64,8 @@ $$
 p(y^{(i)}, ..., y^{(m)} | x^{1}, ..., x^{m}; \theta) = \prod^m_{i=1}p(y^{(i)}|x^{(i)};\theta)
 $$
 
-Under the IID assumption, ==the **joint** probability of observing all the data ($y$) given ($x$) and parameterized by $\theta$== is the **product** ($\prod$) of the individual probabilities, $p(y^{(i)}|x^{(i)};\theta)$, (since the data points are independent). 
+Under the IID assumption, the **joint** probability of observing all the data ($y$) given ($x$) and parameterized by $\theta$ is the **product** ($\prod$) of the individual probabilities, $p(y^{(i)}|x^{(i)};\theta)$, (since the data points are independent). 
+{: .notice--success}
 
 Now, if we see this function as $y$ and $x$ being fixed and $\theta$ unknown, we call it the **likelihood function** ($L(\theta$)). This function indicates **how likely are we to observe our data $y$, given our predictors $x$'s and $\theta$** and is equal to $p(y | X; \theta$) which is a PDF.
 
@@ -73,7 +74,7 @@ L(\theta) = L(\theta;X, \vec y) = p(\vec y | X;\theta) = \prod^m_{i=1}p(y^{(i)}|
 $$
 
 
-Now,  what is a reasonable way of choosing our best guess of the parameters $θ$?
+Now, what is a reasonable way of choosing our best guess of the parameters $θ$?
 The principal of maximum likelihood says that we should choose $\theta$ so as to make the data **as high probability as possible**. This means, we should choose $\theta$ to maximize the **likelihood** of observing our data ($y$) given our $x$'s.  
 
 A more manageable form of the likelihood function is the *log likelihood* 
