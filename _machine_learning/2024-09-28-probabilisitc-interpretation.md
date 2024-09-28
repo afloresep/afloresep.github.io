@@ -100,8 +100,9 @@ $$
 $$
 
 Which means that 
->[!Key concept]
->The **maximum likelihood** of our linear model (i.e. maximizing $L(\theta)$) is equivalent to **least squares** (i.e. minimizing $J(\theta))$
+
+**Key Concept** The **maximum likelihood** of our linear model (i.e. maximizing $L(\theta)$) is equivalent to **least squares** (i.e. minimizing $J(\theta))$
+{: .notice--info}
 
 To summarize: Under the previous probabilistic assumptions on the data, least-squares regression corresponds to finding the maximum likelihood estimate of θ. This is thus one set of assumptions under which least-squares regression can be justified as a very natural method that’s just doing maximum likelihood estimation.
 
