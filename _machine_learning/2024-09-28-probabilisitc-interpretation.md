@@ -27,8 +27,7 @@ Example #1
 Let's assume that the $\epsilon^{(i)}$ are distributed IID according to a **Gaussian distribution** (a.k.a. Normal distribution) with mean zero and some **variance** $\sigma^2$. 
 A way of writing  just this is "$\epsilon{(i)} ~\mathcal{N}(0, \sigma^2)$"
 
-<img width="519" alt="image" src="https://github.com/user-attachments/assets/15368b19-e1fc-4546-bf71-f18632f31a8f">{: .align-center
-
+<img width="519" alt="image" src="https://github.com/user-attachments/assets/15368b19-e1fc-4546-bf71-f18632f31a8f">{
 
 The **density** of $\epsilon^{(i)}$ is given by:
 
@@ -45,8 +44,7 @@ In other words, this formula describes the **likelihood** of observing **a parti
 Here, $\epsilon^{(i)}$ represents the error term (or noise) and is assumed to be normally distributed with mean 0 and variance.- Because $y^{(i)}$ is modeled as the sum of the linear predictor $\theta^T x^{(i)}$ (which is deterministic given $x^{(i)}$) and the normally distributed error term $\epsilon^{(i)}$, the distribution of $y^{(i)}$, conditional on $x^{(i)}$, will **also follow a normal distribution** centered around $\theta^T x^{(i)}$
 
 $$
-     p(y^{(i)} | x^{(i)}; \theta) = \frac{1}{\sqrt{2\pi \sigma}} \exp\left( -\frac{(y^{(i)} - \theta^T x^{(i)})^2}{2\sigma^2} \right)
-     
+p(y^{(i)} | x^{(i)}; \theta) = \frac{1}{\sqrt{2\pi \sigma}} \exp\left( -\frac{(y^{(i)} - \theta^T x^{(i)})^2}{2\sigma^2} \right)
 $$
 
 $p(y^{(i)} | x^{(i)}; \theta)$: indicates that this is the distribution of $y^{(i)}$ given $x^{(i)}$ and parameterized by $θ$
@@ -67,7 +65,7 @@ $$
 Under the IID assumption, the **joint** probability of observing all the data ($y$) given ($x$) and parameterized by $\theta$ is the **product** ($\prod$) of the individual probabilities, $p(y^{(i)}|x^{(i)};\theta)$, (since the data points are independent). 
 {: .notice--success}
 
-Now, if we see this function as $y$ and $x$ being fixed and $\theta$ unknown, we call it the **likelihood function** ($L(\theta$)). This function indicates **how likely are we to observe our data $y$, given our predictors $x$'s and $\theta$** and is equal to $p(y|X;\theta)$ which is a PDF.
+Now, if we see this function as $y$ and $x$ being fixed and $\theta$ unknown, we call it the **likelihood function** ($L(\theta$)). This function indicates **how likely are we to observe our data $y$, given our predictors $x$'s and $\theta$** and is equal to probability of $y$ dependent on $x$ which is a PDF.
 
 $$
 L(\theta) = L(\theta;X, \vec y) = p(\vec y | X;\theta) = \prod^m_{i=1}p(y^{(i)}|x^{(i)};\theta)
