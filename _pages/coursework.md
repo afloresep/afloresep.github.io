@@ -43,6 +43,7 @@ I will be documenting my progress in **HS2024 - Machine Learning**, a course off
 
 Machine learning is the driving force behind much of modern AI, powering systems that can learn from data, recognize patterns, and make informed decisions. 
 - [Supervised learning](https://afloresep.github.io/machine-learning/supervised-learning/)
+- [Probabilistc interpretation](https://afloresep.github.io/machine-learning/probabilistic-interpretation/)
 - Unsupervised learning
 - Reinforcement learning
 These topics are explored through a probabilistic framework, with a strong emphasis on optimization techniques throughout the course.
