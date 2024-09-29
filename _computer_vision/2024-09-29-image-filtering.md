@@ -1,3 +1,9 @@
+---
+title: "Image Filtering"
+excerpt: "Image filtering covering convolutions, denoising and more"
+collection: computer_vision
+permalink: /computer-vision/image-filtering/
+---
 
 ## Image denoising
 Sensors are subject to noise. By analysing the sensor we can model the noise distribution. For example, a typical model for noise is: $x = x_0 +n$ where $x$ is the image we took plus another component, $n$, which is the noise described by $\mathcal{N}(0,\sigma^2$) and $x_0$ is the noise-free image. 
