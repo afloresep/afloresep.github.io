@@ -40,8 +40,7 @@ Adding a lens focuses light onto the film or sensor, improving image clarity and
 These simple rules allow us to understand how lenses focus light more effectively, forming sharp images.
 
 Mathematically
-![image](https://github.com/user-attachments/assets/c2e6486b-ef67-4e9f-b7a3-c69a1c557aae)
-![image](https://github.com/user-attachments/assets/acab5df3-bf93-4da5-aa5a-6420d75dc984)
+![image](https://github.com/user-attachments/assets/f1facf92-273b-4668-9292-41b9b9bedd39)
 
 In this scenario, light hitting the lens at a distance \( d \) from the center at an angle \( \alpha \) follows the relation:
 
@@ -65,8 +64,8 @@ This equation describes how the angle of the light ray changes after passing thr
 
 One important consideration with lens focusing is that objects at a specific **distance** from the lens will be "**in focus**", meaning their light rays converge precisely on the image plane. Objects closer or farther away will not project perfectly onto this plane and instead form a **circle of confusion**. This is the area where light from a point object spreads out, causing the image to appear blurry or out of focus. The size of this circle determines how blurred an image will be when not focused correctly.
 
-![image](https://github.com/user-attachments/assets/af014b2e-a93d-42b4-ac4b-7674871935f4)
-![image](https://github.com/user-attachments/assets/17183f31-92c3-4fdc-95c2-1ee353eea443)
+![image](https://github.com/user-attachments/assets/5ecd3df5-1dd3-46f4-8cac-ba95e637a4af)
+
 
 Using similar triangles we can know: $y'/y = D'/D$ and $y'/y = (D'-f)/f$ and with this write the famous thin-lens formula, which relates $D'$ to $d$ and $f$
 
@@ -96,7 +95,6 @@ Radial distortion occurs due to imperfections in the lens, causing light rays to
 
 #### Chromatic Aberration
 Chromatic aberration arises because a lens refracts different wavelengths of light (colors) at slightly different angles, leading to color fringing around the edges of objects in an image. This occurs when a lens has varying refractive indices for different wavelengths, causing each color to focus at a slightly different point. The effect is most visible in high-contrast areas and can be corrected with multi-element lenses or post-processing.
-![image](https://github.com/user-attachments/assets/3c9ad16a-8bed-4181-84f8-f2890915eca1)
 
 ![image](https://github.com/user-attachments/assets/c3bfd188-9529-4e3d-986d-1b141237a596)
 
