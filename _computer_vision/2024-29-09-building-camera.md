@@ -1,15 +1,23 @@
-1. #Pin Hole Camera vs Lens Camera
-2. #Adding a lens
-3. #Depth of Field
-4. #Lens Flaws
-	1. #Radial Distortion]
-	2. #Chromatic Aberration
-	3. #Vignetting
-5. #Digital Camera
-	1. #Camera pixel
-	2. #Color sensing in camera Color filter array
-	3. #Demosaicing
-	4. #Color Moiré
+---
+title: "Building Cameras"
+excerpt: "lens camera, DOF, lens flaws, desmosaicing, bay array and color moiré"
+collection: computer_vision
+permalink: /computer-vision/building-cameras/
+---
+
+1. [Pin Hole Camera vs Lens Camera](#pin-hole-camera-vs-lens-camera)
+2. [Adding a lens](#adding-a-lens)
+3. [Depth of Field](#depth-of-field)
+4. [Lens Flaws](#lens-flaws)
+   - 4.1. [Radial Distortion](#radial-distortion)
+   - 4.2. [Chromatic Aberration](#chromatic-aberration)
+   - 4.3. [Vignetting](#vignetting)
+5. [Digital Camera](#digital-camera)
+   - 5.1. [Camera pixel](#camera-pixel)
+   - 5.2. [Color sensing in camera Color filter array](#color-sensing-in-camera-color-filter-array)
+   - 5.3. [Demosaicing](#demosaicing)
+   - 5.4. [Color Moiré](#color-moiré)
+
 
 ### Pin Hole Camera vs Lens Camera
 In a **pinhole camera**, light is captured using a film or sensor behind a barrier with a tiny hole. The hole allows light rays to pass through, forming an image on the film. This design works well because without the barrier, the entire scene would appear overwhelmingly bright and washed out, with no distinct image. The small aperture of the pinhole limits the amount of light, creating a sharper and more defined image.
