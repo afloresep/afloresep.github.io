@@ -84,7 +84,7 @@ We’d derived the LMS rule for when there was only a single training example. T
 $$
 \theta_j := \theta_j - \alpha \sum^m_{i=1}(\theta^Tx^{i} -y^i )x^i
 $$
-This method looks at every example in the entire training set on every step, and is call is called **[[batched gradient descent]]**
+This method looks at every example in the entire training set on every step, and is call is called **batched gradient descent**
 
 There is an alternative to batch gradient descent that also works very well.
 
@@ -94,7 +94,7 @@ $$
 \theta_j := \theta_j - \alpha(y^i - h_\theta(x^i))x^i_j \ \ (for\ \ every \ \ j)  
 $$
 		
-In this algorithm, we repeatedly run through the training set, and each time we encounter a training example, we update the parameters according to the gradient of the error with respect to that single training example only. This algorithm is called [[Stochastic Gradient Descent]]
+In this algorithm, we repeatedly run through the training set, and each time we encounter a training example, we update the parameters according to the gradient of the error with respect to that single training example only. This algorithm is called Stochastic Gradient Descent
 
 Whereas batch gradient descent has to scan through the entire training set before taking a single step—a costly operation if m is large—stochastic gradient descent can start making progress right away, and continues to make progress with each example it looks at. Often, stochastic gradient descent gets θ “close” to the minimum much faster than batch gradient descent.
 
@@ -111,9 +111,10 @@ $$
 \end{equation}
 $$
 
->[! Definition]
->$$\nabla_A f(A)$$ 
->the gradient ($\nabla$) of the function ($f(A)$) with respect to all the entries of matrix ($A$)
+
+**Definition** $$\nabla_A f(A)$$ 
+the gradient ($\nabla$) of the function ($f(A)$) with respect to all the entries of matrix ($A$)
+{: .notice--info}
 
 Thus, the gradient $\nabla_Af(A)$ is itself an *m*-by-*n* matrix, whose (*i, j*)-element is ${\partial f}/{\partial A_{ij}}$
 
@@ -125,9 +126,8 @@ $$
 
 The trace operator has the property that for two matrices A and B such that AB is square, we have that $trAB = trBA$ 
 
->[!Important definitions] 
-> $trAB = trBA$
-
+**Important definition** $trAB = trBA$
+{: .notice--info}
 
 Let's start by defining what matrix multiplication is for $A\in \mathbb{R}^{m\times n} \ , \ B\in \mathbb{R}^{n\times m}$:
 
@@ -165,7 +165,7 @@ $$\nabla_AtrABA^TC = CAB + C^TAB^T$$
 
 $$\nabla_A |A| = |A|(A^{-1})^T$$
 
-The last equation (4) applies **only to non-singular square matrices A**, where |A| denotes the determinant of A
+The last equation (4) applies **only to non-singular square matrices A**, where $\lvert A \rvert $ denotes the determinant of A
 
 #### Matrix derivatives for Least squares
 Armed with the tools of matrix derivatives, let us now proceed to find in closed-form the value of $θ$ that minimizes $J(θ)$. We begin by re-writing $J$ in matrix-vectorial notation.
@@ -223,7 +223,7 @@ $$\begin{align*}
 \end{align*}
 $$
 
-And therefore our [[cost function]] $J(\theta)$: 
+And therefore our cost function $J(\theta)$: 
 
 $$
 J(\theta) = \frac {1}2\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2 
