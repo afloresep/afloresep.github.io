@@ -5,6 +5,9 @@ main:
   - title: "Portfolio"
     url: /portfolio/
 
+  - title: "Study Progress"
+    url: /weekly-study-report/
+
   - title: "Blog Posts"
     url: /year-archive/
 
