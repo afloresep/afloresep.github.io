@@ -27,9 +27,14 @@ More posts on related concepts and applications will be added soon as I continue
 
 ## Computer Vision
 I will be documenting my progress in **HS2024 - Computer Vision**, a course offered by Universität Bern, which covers key concepts in CV. My notes dive into various topics that form the backbone of the field:
-
+#### Image Formation
 1. **[Projection Models](https://afloresep.github.io/computer-vision/Projection-Models/):**  
    This post provides a detailed explanation of camera models and the mathematics behind projecting 3D objects onto 2D images. It covers the essentials of camera calibration, perspective projection, and the pinhole camera model.
+2. **[Building a real camera](https://afloresep.github.io/computer-vision/building-cameras/)**: Covers lens camera, depth of field, lens flaws, bay array, desmosaicing and concept of color Moiré
+3. **[Event Based Camera](https://afloresep.github.io/computer-vision/event-based-camera)**
+
+#### Image processing
+1. **[Image filtering](https://afloresep.github.io/computer-vision/image-filtering/)**: Image denoising, convolution, gaussian kernel...
 
 Future posts will cover other critical aspects of the course, including:
 - Algorithms for image processing such as image filtering and image segmentation
@@ -43,6 +48,7 @@ I will be documenting my progress in **HS2024 - Machine Learning**, a course off
 
 Machine learning is the driving force behind much of modern AI, powering systems that can learn from data, recognize patterns, and make informed decisions. 
 - [Supervised learning](https://afloresep.github.io/machine-learning/supervised-learning/)
+- [Probabilistc interpretation](https://afloresep.github.io/machine-learning/probabilistic-interpretation/)
 - Unsupervised learning
 - Reinforcement learning
 These topics are explored through a probabilistic framework, with a strong emphasis on optimization techniques throughout the course.
