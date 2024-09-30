@@ -7,7 +7,18 @@ author_profile: true
 
 <style>
   .book-progress {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .book-cover {
+    width: 100px;
+    height: 150px;
+    margin-right: 20px;
+    object-fit: cover;
+  }
+  .progress-container {
+    flex-grow: 1;
   }
   .progress-bar {
     background-color: #e0e0e0;
@@ -32,16 +43,22 @@ author_profile: true
   <h2>Book Shelf</h2>
   
   <div class="book-progress">
-    <p>Book 1: Deep Learning (23% complete)</p>
-    <div class="progress-bar">
-      <div class="progress" style="width: 23%;"></div>
+    <img src="/images/fluent-python-cover.png" alt="Fluent Python Cover" class="book-cover">
+    <div class="progress-container">
+      <p>Book 1: Fluent Python (5% complete)</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 5%;"></div>
+      </div>
     </div>
   </div>
   
   <div class="book-progress">
-    <p>Book 2: Python for Data Science (100% complete)</p>
-    <div class="progress-bar">
-      <div class="progress" style="width: 100%;"></div>
+    <img src="/images/algorithms-sedgewick-cover.png" alt="Algorithms Cover" class="book-cover">
+    <div class="progress-container">
+      <p>Book 2: Algorithms by Robert Sedgewick, Kevin Wayne (0% complete)</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 0%;"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -50,53 +67,49 @@ author_profile: true
   <h2>Weekly Progress</h2>
   
   <div class="week-entry">
+    <h3>Week IV</h3>
+    <ul>
+      <li>My work now is involving a lot of algorithms, a topic I haven't read much about. So I will also be adding <em>Algorithms by Robert Sedgewick, Kevin Wayne</em> to the book shelf. These chapters are huge so I don't expect to read a chapter per week.</li>
+    </ul>
+  </div>
+
+  <div class="week-entry">
     <h3>Week III</h3>
     <ul>
-      <li>Read Book 1: Chapter V
-        <ul>
-          <li>Covered Topics 12, 13, and 14</li>
-        </ul>
-      </li>
-      <li>Completed Book 2
-        <ul>
-          <li>Finished final chapter and exercises</li>
-        </ul>
-      </li>
-      <li>Attended Computer Vision Class V</li>
+      <li>I've decided to start reading <em>Fluent Python</em> to improve my coding skills in this programming language. I will try to cover a Chapter/Week</li>
+      <li>Class 3 for the Computer Vision course</li>
+      <li>Class 3 for the Machine Learning course</li>
     </ul>
   </div>
 
   <div class="week-entry">
     <h3>Week II</h3>
     <ul>
-      <li>Read Book 1: Chapters III and IV
-        <ul>
-          <li>Covered Topics 6, 7, 8, 9, 10, and 11</li>
-        </ul>
-      </li>
-      <li>Read Book 2: Chapters XV and XVI
-        <ul>
-          <li>Covered Topics 44, 45, 46, and 47</li>
-        </ul>
-      </li>
-      <li>Attended Computer Vision Class IV</li>
+      <li>Class 2 for the Computer-Vision course</li>
+      <li>Class 2 for the Machine Learning course: Covered Matrix derivates, trace operator. Probabilistic interpretation: PDF and importance of IID data, likelihood function and maximum likelihood function of linear models.</li>
+      <li>Reading about Algorithms -primarily Hierarchical Agglomerative clustering methods-.</li>
     </ul>
   </div>
 
   <div class="week-entry">
     <h3>Week I</h3>
     <ul>
-      <li>Read Book 1: Chapter II
+      <li>Class 1 for the Computer-Vision course: Projection Models. Pin-Hole camera, 3D-2D projection and Vanishing points covered.</li>
+      <li>Class 1 for the Machine Learning course: Introduction to Machine Learning and different types of learning algorithms. Also covered linear regression, Least-Means-Square algorithm, cost functions...</li>
+      <li>Class 1 for Applied Optimization:
         <ul>
-          <li>Covered Topics 2, 3, and 5</li>
+          <li>Fundamental definitions (definition of a optimization problem), classes of optimization problems (Linear Program, Non-Linear Program, Convex Optimization problem), Linear Least-Squares</li>
         </ul>
       </li>
-      <li>Read Book 2: Chapter XIV
-        <ul>
-          <li>Covered Topics 41 and 43</li>
-        </ul>
-      </li>
-      <li>Attended Computer Vision Class III</li>
+      <li>Create TMAP blog post. Learned about Min-Hashing, LSH and k-NN graphs</li>
+    </ul>
+  </div>
+
+  <div class="week-entry">
+    <h3>Week 0</h3>
+    <ul>
+      <li>Arriving to Bern</li>
+      <li>Creating website</li>
     </ul>
   </div>
 </section>
