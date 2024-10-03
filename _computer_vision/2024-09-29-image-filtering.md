@@ -61,4 +61,98 @@ The idea is that we don't want to change the overall intensity of the image so w
 Very important to note that the Gaussian kernel is used to focus on hyperparameter tuning as by in depth understanding of the parameters we can get the best results. The parameters are:
 - Kernel size: Determines the range the smoothing will be applied to
 - Standard deviation/variance ($\sigma$): Determines the extent of smoothing that will be applied to the image
-- Kernel width: Choose a gaussian filter that has half-width to about 3$\sigma$. 
+- Kernel width: Choose a gaussian filter that has half-width to about 3$\sigma$.
+
+##### Separable Kernel
+A *separable* kernel can be expressed as the product of two 1D vectors. For example:
+
+$$
+\begin{bmatrix}
+1 & 2 & 1 \\
+2 & 4 & 2 \\
+1 & 2 & 1
+\end{bmatrix}
+= \begin{bmatrix}
+1 \\
+2 \\
+1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2 & 1
+\end{bmatrix}
+$$
+
+Mathematically, the 2D Gaussian function can be written as the product of two 1D functions, one depending on \(x\) and the other on \(y\):
+
+$$
+\begin{align*}
+G_{\sigma}(x, y) &= \frac{1}{{2\pi \sigma^2}} \exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right) \\
+&= \left( \frac{1}{{\sqrt{2\pi} \sigma}} \exp\left(-\frac{x^2}{2\sigma^2}\right) \right) \left( \frac{1}{{\sqrt{2\pi} \sigma}} \exp\left(-\frac{y^2}{2\sigma^2}\right) \right)
+\end{align*}
+$$
+
+This is not merely a mathematical trick; separability allows for significant computational optimizations in convolution. Specifically:
+- You can perform the convolution in two steps: first along the $x$-axis and then along the $y$-axis.
+- This approach enables parallel processing of the two steps, potentially reducing computation time.
+
+##### Why is separability useful?
+When a 2D kernel is separable, a 2D convolution can be broken down into two 1D convolutions (one across the rows and another across the columns). This reduces the computational complexity from $O(n^2m^2)$ for a direct 2D convolution on an $n \times n$ image with an $m \times m$ kernel, to $O(n^2m)$, making the process much more efficient.
+
+#### Noise
+Noise refers to **unwanted or random variations in pixel values that degrade the quality of an image**. Several types of noise can affect an image:
+
+- **Salt and pepper noise**: random occurrences of black and white pixels.
+- **Impulse noise**: random occurrences of white pixels.
+- **Gaussian noise**: variations in intensity that follow a Gaussian (normal) distribution.
+
+Gaussian noise is a good model for various types of random noise, as it simulates the summation of many independent factors affecting the image. It is particularly useful for images with small standard deviations. In practice, we often assume that the noise has a mean of zero and is independent of the image data. Applying Gaussian smoothing with larger standard deviations can suppress noise, but it also has the side effect of **blurring the image**.
+##### Reducing salt-and-pepper noise
+The **Gaussian filter** is not well-suited for removing **salt and pepper noise** because it operates by applying a weighted average to the pixel values in a neighbourhood, giving more weight to the center pixels. While this makes it effective at smoothing out **Gaussian noise** (where pixel intensity values vary gradually), it struggles with **salt and pepper noise**, which consists of sharp, extreme pixel values (**outliers**)—random occurrences of black (0 intensity) or white (maximum intensity) pixels—scattered throughout the image.
+
+One alternative, is to use a median filter . 
+
+The **median filter** is a widely used technique for reducing noise in images, particularly effective for removing **salt and pepper noise** (random black and white pixels). It operates by replacing each pixel's value with the **median value** of the neighboring pixels in a defined window (usually square-shaped). Unlike other filters, such as the mean filter, the median filter **preserves edges while smoothing out noise.**
+
+ **How the Median Filter Works:**
+1. **Sliding window**: The filter uses a sliding window (e.g., 3x3, 5x5) that moves pixel by pixel across the image.
+2. **Neighbor selection**: For each pixel, the values of its neighbouring pixels (inside the window) are collected.
+3. **Sorting and median calculation**: The values within the window are sorted in ascending order, and the median (middle) value is found.
+4. **Replacement**: The original pixel value is replaced with the median value
+
+##### Linearity of Median Filter
+Median filter is not linear. 
+
+Proof: 
+To prove that the **median filter** is not linear, we need to demonstrate that it violates one or both of the key properties of **linearity**
+
+##### 1. Additivity Violation (Counterexample)
+
+Let's consider a simple 1D example where the median filter operates on a window of size 3.
+- Let $I_1 = [1, 2, 100]$
+- Let $I_2 = [3, 4, 5]$
+
+Now, apply the median filter to each image separately.
+
+For $I_1$: The median of $[1, 2, 100]$ is 2
+For $I_2: The median of $[3, 4, 5]$ is 4.
+
+So,
+$F(I_1) = 2, \quad F(I_2) = 4$
+Now, consider the sum of the two images $I_1 + I_2 = [4, 6, 105]$.
+Apply the median filter to the sum: The median of [4, 6, 105] is 6.
+
+So,
+$F(I_1 + I_2) = 6$
+
+Now check whether the additivity property holds:
+
+$F(I_1 + I_2) \neq F(I_1) + F(I_2)$
+
+Since $6 \neq 2 + 4$ the median filter violates additivity.
+
+#### Self-Check Questions
+- How can zero-mean noise be removed? 
+- How do convolutional filters work? Write the mathematical expression of the convolution between an image and a kernel
+- Why is a Gaussian filter a good choice for a denoising kernel?
+- Why is a separable filter a good choice for a convolution?
+- How does the median filter work? Is it a linear filter? Why? 
