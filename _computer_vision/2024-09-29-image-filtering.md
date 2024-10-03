@@ -85,10 +85,10 @@ $$
 Mathematically, the 2D Gaussian function can be written as the product of two 1D functions, one depending on \(x\) and the other on \(y\):
 
 $$
-\begin{align*}
+\begin{aligned}
 G_{\sigma}(x, y) &= \frac{1}{{2\pi \sigma^2}} \exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right) \\
 &= \left( \frac{1}{{\sqrt{2\pi} \sigma}} \exp\left(-\frac{x^2}{2\sigma^2}\right) \right) \left( \frac{1}{{\sqrt{2\pi} \sigma}} \exp\left(-\frac{y^2}{2\sigma^2}\right) \right)
-\end{align*}
+\end{aligned}
 $$
 
 This is not merely a mathematical trick; separability allows for significant computational optimizations in convolution. Specifically:
