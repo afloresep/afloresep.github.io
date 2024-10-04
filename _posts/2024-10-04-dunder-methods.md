@@ -1,9 +1,10 @@
 ---
 title: 'Dunder Methods'
-date: 2024-09-10
+date: 2024-10-04
+permalink: /posts/2024/10/DunderMethods/
 tags:
-    - Books
-    - Python
+  - Python
+  - Books
 ---
 
 #### What are special methods?
