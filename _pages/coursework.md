@@ -35,7 +35,7 @@ I will be documenting my progress in **HS2024 - Computer Vision**, a course offe
 
 #### Image processing
 1. **[Image filtering](https://afloresep.github.io/computer-vision/image-filtering/)**: Image denoising, convolution, gaussian kernel...
-
+2. **[Edge detection](https://afloresep.github.io/computer-vision//computer-vision/edge-detection/)
 Future posts will cover other critical aspects of the course, including:
 - Algorithms for image processing such as image filtering and image segmentation
 - Algorithms for object detection (such as faces) and recognition
