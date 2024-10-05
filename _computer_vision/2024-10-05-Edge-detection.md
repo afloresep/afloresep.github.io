@@ -206,9 +206,9 @@ This measures how much the function changes in the$y$-axis as we make a small ch
 
 The formula for the **partial derivative of 2D function** is rooted in the concept of how we measure the rate of change of a function with respect to **one of its variables**, **while keeping the other variable constant.**
 
-In the case of a function$f(x, y)$of two variables, the partial derivative$\frac{\partial f}{\partial x}$measures how the function$f(x, y)$changes as we change$x$, while keeping $y$constant.
+In the case of a function $f(x, y)$ of two variables, the partial derivative $\frac{\partial f}{\partial x}$ measures how the function $f(x, y)$ changes as we change$x$, while keeping $y$ constant.
 
-Thus, the formula for the partial derivative with respect to$x$looks similar to the single-variable case, but now we’re holding$y$fixed:
+Thus, the formula for the partial derivative with respect to$x$looks similar to the single-variable case, but now we’re holding $y$ fixed:
 
 $$
 \frac{\partial f(x,y)}{\partial x} = \lim_{\mathcal{E} \to 0} \frac{f(x + \mathcal{E}, y) - f(x, y)}{\mathcal{E}}
@@ -220,6 +220,6 @@ Here:
 -$\mathcal{E}$is a small change in$x$(the same idea as$\Delta x$in single-variable calculus).
 
 ##### 3. **Why the Limit?**
-The limit $\lim_{\mathcal{E} \to 0}$is there because we want to measure the *instantaneous* rate of change of $f(x, y)$with respect to $x$. In other words, we’re interested in how the function changes for an infinitesimally small change in $x$.
+The limit $\lim_{\mathcal{E} \to 0}$ is there because we want to measure the *instantaneous* rate of change of $f(x, y)$ with respect to $x$. In other words, we’re interested in how the function changes for an infinitesimally small change in $x$.
 
-If you just look at the difference $f(x + \mathcal{E}, y) - f(x, y)$, it gives you the change in $f$over a finite step $\mathcal{E}$. But to get the exact slope (rate of change) at the point $(x, y)$, we need to take the step size $\mathcal{E}$to be arbitrarily small — hence, we take the limit as $\mathcal{E}$approaches 0.
+If you just look at the difference $f(x + \mathcal{E}, y) - f(x, y)$, it gives you the change in $f$over a finite step $\mathcal{E}$. But to get the exact slope (rate of change) at the point $(x, y)$, we need to take the step size $\mathcal{E}$to be arbitrarily small — hence, we take the limit as $\mathcal{E}$ approaches 0.
