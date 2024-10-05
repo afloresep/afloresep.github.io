@@ -26,7 +26,7 @@ I've written a detailed blog post that offers a foundational introduction to **T
 More posts on related concepts and applications will be added soon as I continue to expand my research.
 
 ## Computer Vision
-I will be documenting my progress in **HS2024 - Computer Vision**, a course offered by Universität Bern, which covers key concepts in CV. My notes dive into various topics that form the backbone of the field:
+I will be documenting my progress in **HS2024 - Computer Vision**, a course offered by Universität Bern, which covers key concepts in CV. My notes dive into various topics that form the backbone of the field. These notes will form a comprehensive resource for anyone interested in the technical foundations and applications of computer vision.
 #### Image Formation
 1. **[Projection Models](https://afloresep.github.io/computer-vision/Projection-Models/):**  
    This post provides a detailed explanation of camera models and the mathematics behind projecting 3D objects onto 2D images. It covers the essentials of camera calibration, perspective projection, and the pinhole camera model.
@@ -35,13 +35,8 @@ I will be documenting my progress in **HS2024 - Computer Vision**, a course offe
 
 #### Image processing
 1. **[Image filtering](https://afloresep.github.io/computer-vision/image-filtering/)**: Image denoising, convolution, gaussian kernel...
-2. **[Edge detection](https://afloresep.github.io/computer-vision//computer-vision/edge-detection/)
-Future posts will cover other critical aspects of the course, including:
-- Algorithms for image processing such as image filtering and image segmentation
-- Algorithms for object detection (such as faces) and recognition
-- Algorithms for 3D reconstruction (e.g., from stereo systems) Describe the mathematics underpinning each method and know how to adapt it to new scenarios.
-  
-These notes will form a comprehensive resource for anyone interested in the technical foundations and applications of computer vision.
+2. **[Edge detection]**(https://afloresep.github.io/computer-vision/edge-detection/): Noise detection, gaussian filters, separability of a convolution, edge detection and partial derivative filters.
+
 
 ## Machine Learning
 I will be documenting my progress in **HS2024 - Machine Learning**, a course offered by Universität Bern, which covers key concepts in Machine Learning.
