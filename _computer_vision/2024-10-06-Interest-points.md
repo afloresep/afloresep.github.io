@@ -117,11 +117,11 @@ det\ \ M &= \lambda_1 \lambda_2 \\ trace \ \ M=&\lambda_1 + \lambda_2
 $$
 
 4. Harris detector defined via
-5. 
-$$
-det \ \ M - k·trace^2 (M) > t
 
 $$
+det \ \ M - k·trace^2 (M) > t
+$$
+
 k: empirical constant, k= 0.04-0,06
 t: threshold 
 
