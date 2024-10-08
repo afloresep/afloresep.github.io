@@ -1,6 +1,6 @@
 ---
 title: 'Laplacian Positional Encoding'
-date: 2024-10-04
+date: 2024-10-08
 permalink: /posts/2024/10/laplacian_positional_encoding/
 tags:
   - Graph Theory
@@ -12,10 +12,12 @@ tags:
 
 
 The graph Laplacian is a matrix representation of a graph. For an undirected graph, it's defined as $L = D - A$, where $D$ is the degree matrix and $A$ is the adjacency matrix.
-### Laplacian Eigenvectors and Eigenvalues: Relevance to Graph Representation
 {:. notice--success}
 
+### Laplacian Eigenvectors and Eigenvalues: Relevance to Graph Representation
+
 In graph theory, **Laplacian eigenvectors** and **eigenvalues** are derived from the **graph Laplacian matrix**, a matrix representation that encapsulates the connectivity or structure of a graph. The importance of these eigenvectors and eigenvalues lies in their ability to provide meaningful geometric and topological insights about the graph, allowing us to **embed** or map a graph into Euclidean space, like a 2D plane. This embedding, known as **Laplacian Positional Encoding**, creates a local coordinate system that reflects the structure of the graph while preserving its global features, which is crucial for tasks such as **graph layout**, **graph clustering**, or **graph-based learning**.
+
 ### 1. **Graph Laplacian and its Definition**
 
 Given a graph $G$ with $n$ nodes, its structure can be described by:
