@@ -6,7 +6,8 @@ tags:
   - Computer Vision
 ---
 
---- 
+Widely used for **corner** detection in computer 
+
 ## Harris Detector
 
 Widely used for **corner** detection in computer vision. Corners, as distinctive image features, are particularly important because they provide stable points that can be tracked between images. See Locating and Describing Interest Points
