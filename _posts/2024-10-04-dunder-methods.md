@@ -17,7 +17,7 @@ You don't write `my_object.__len__()`, you write `len(my_object)`.
 - **Implicit invocation:** Special methods are called automatically by Python in specific situations, while regular methods need to be called explicitly.
 - **Syntax integration:** Special methods allow your objects to work with Python's built-in syntax and functions, whereas regular methods don't.
 
-```
+```python
 class MyClass:
     def __init__(self, value):
         self.value = value
@@ -47,7 +47,7 @@ Several special methods allow user objects to respond to operators such as '+' o
 `__repr__(self):`Returns a detailed string representation of the object, used for debugging. Without a custom `__repr__`, Python’s console would display a Vector instance `<Vector object at 0x10e100070>`, but we can change this:
 
 Example
-```
+```python
 class Vector:
 	def __repr__(self):
 		return f'Vector({self.x!r}, {self.y!r})'
