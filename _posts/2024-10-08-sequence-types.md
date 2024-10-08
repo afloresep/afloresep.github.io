@@ -1,5 +1,5 @@
 ---
-title: 'Dunder Methods'
+title: 'Sequence Types'
 date: 2024-10-04
 permalink: /posts/2024/10/SequenceTypes/
 tags:
@@ -45,7 +45,7 @@ In this case, the array holds machine-level **floating-point values** directly i
 - **Container sequences**: Hold **references** to objects. Each object has its own memory location, and Python needs to store both the reference and the object’s internal structure (**metadata**).
 - **Flat sequences**: Hold **values directly** in memory. They are more memory-efficient because they don't store Python objects, only the actual raw data in contiguous memory.
 
-![[Pasted image 20241007094559.png]]
+![image](https://github.com/user-attachments/assets/74412c82-5d90-4e6d-aca9-2029e4100086)
 *Left: Container Sequence
 Right: Flat sequence*
 
