@@ -1,10 +1,12 @@
 ---
 title: 'Laplacian Positional Encoding'
-date: 2024-10-08
-permalink: /posts/2024/10/laplacian-positional-encoding/
+date: 2024-10-04
+permalink: /posts/2024/10/laplacian_positional_encoding/
 tags:
-  - Graph theory
+  - Graph Theory
+  - 
 ---
+
 
 ## Laplacian Positional Encoding
 
