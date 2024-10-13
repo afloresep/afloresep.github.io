@@ -1,8 +1,8 @@
 ---
-title: "Supervised Learning"
-excerpt: "First part of the Machine Learning course."
+title: "Linear Regression"
+excerpt: "First part of the Machine Learning course. Introduction and Linear Regression"
 collection: machine_learning
-permalink: /machine-learning/supervised-learning/
+permalink: /machine-learning/linear-regression/
 ---
 
 Supervised learning, also known as supervised machine learning, is a subcategory of machine learning and artificial intelligence. It is defined by its use of labeled data sets to train algorithms that to classify data or predict outcomes accurately.

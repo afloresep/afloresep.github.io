@@ -42,10 +42,16 @@ I will be documenting my progress in **HS2024 - Computer Vision**, a course offe
 I will be documenting my progress in **HS2024 - Machine Learning**, a course offered by Universität Bern, which covers key concepts in Machine Learning.
 
 Machine learning is the driving force behind much of modern AI, powering systems that can learn from data, recognize patterns, and make informed decisions. 
-- [Supervised learning](https://afloresep.github.io/machine-learning/supervised-learning/)
-- [Probabilistc interpretation](https://afloresep.github.io/machine-learning/probabilistic-interpretation/)
-- Unsupervised learning
-- Reinforcement learning
+
+Supervised Learning
+- [Linear Regression](https://afloresep.github.io/machine-learning/linear-regression) & [Probabilistc interpretation](https://afloresep.github.io/machine-learning/probabilistic-interpretation/)
+- [Classification](https://afloresep.github.io/machine-learning/classification)
+- [Generalized Linear Models](https://afloresep.github.io/machine-learning/generalized-linear-models)
+
+Unsupervised learning
+
+Reinforcement learning
+
 These topics are explored through a probabilistic framework, with a strong emphasis on optimization techniques throughout the course.
   
 Also expect detailed posts covering essential algorithms such as **Support Vector Machines**, **Decision Trees**, and **Convolutional Neural Networks (CNNs)**.
