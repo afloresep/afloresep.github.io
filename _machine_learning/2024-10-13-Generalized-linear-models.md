@@ -165,7 +165,7 @@ $$
 \phi = \frac{1}{1+ e^{-\eta}}
 $$
 
-So if $y|x;\theta \backsim \text{Bernoulli}(\phi)$, then by the first assumption and following a similar derivation as the one for ordinary least squares, we get: 
+So if $y$ | $x$;\theta \backsim \text{Bernoulli}(\phi)$, then by the first assumption and following a similar derivation as the one for ordinary least squares, we get: 
 
 $$
 \begin{align*}
