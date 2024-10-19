@@ -16,9 +16,16 @@ $$
 **Where:**
 
 $y$ is the random variable or response variable.
+
 $\eta$ is the **natural parameter** (also known as the **canonical parameter**). Determines the shape or characteristics of the distribution.
+
+
 $T(y)$ is the **sufficient statistic** (often $T(y) = y$).  Contains all the information needed from the data regarding the parameter $\eta$.
+In simpler terms, $y$ is the raw data, while $T(y)$ is the form that the response variable takes when incorporated into the mathematical structure of the GLM. The transformation is needed to adapt to different types of response distributions.
+In many cases, $T(y)$ might just be the identity function, meaning $T(y)=y$. However, in some cases, $T(y)$  can take other forms. For instance, in a **binomial model**, $T(y)$ can be a binomial proportion, or in **Poisson regression**, it could involve a logarithmic transformation. The exact form of $T(y)$ depends on the distribution family of the data.
+
 $a(\eta)$ is the **log-partition function**, ensuring the distribution sums or integrates to one. Acts as a normalizing constant to ensure the probabilities sum to one.
+
 $b(y)$ is the **base measure**, often a function involving $y$ that ensures the distribution is properly scaled.
 
 This form is powerful because it encompasses many common distributions (Gaussian, Bernoulli, Poisson, etc.) and provides a unified way to work with them.
@@ -143,10 +150,10 @@ To show that least-squares is a special case of the GLM family, consider the set
 Given assumption 2: 
 
 $$
-h_\theta(x) = E[y|x]
+h_\theta(x) = E[y/x]
 $$
 
-and since $y|x;\theta \backsim \mathcal{N}(\mu, \sigma^2)$ and so its expected value is given by $\mu$ then:
+and since $y/x;\theta \backsim \mathcal{N}(\mu, \sigma^2)$ and so its expected value is given by $\mu$ then:
 
 $$
 \begin{align*}
@@ -313,9 +320,10 @@ Further, we have that $E[(T(y))_i] = P(y=i) = \phi_i$
 #### Proof that multinomial is part of the exponential family
 
 $$
-\begin{align} p(y;\phi) &= \phi_1^{1\{y=1\}}\phi_2^{1\{y=2\}}... \ \phi_k^{1\{y=k\}} \\
-&= \phi_1^{1\{y=1\}}\phi_2^{1\{y=2\}}... \ \phi_k^{1-\sum_{i=1}^{k-1} 1\{y=i\}} \\
-&= \phi_1^{T(y)_1}\phi_2^{T(y)_2}\ ...\ \phi_k^{1-\sum_{i=1}^{k-1} 1\{y=i\}}
+\begin{align}
+p(y;\phi) &= \phi_1^{1\{y=1\}}\phi_2^{1\{y=2\}}\cdots \phi_k^{1\{y=k\}} \\
+         &= \phi_1^{1\{y=1\}}\phi_2^{1\{y=2\}}\cdots \phi_k^{1 - \sum_{i=1}^{k-1} 1\{y=i\}} \\
+         &= \phi_1^{T(y)_1}\phi_2^{T(y)_2} \cdots \phi_k^{1 - \sum_{i=1}^{k-1} 1\{y=i\}}
 \end{align}
 $$
 
@@ -345,8 +353,9 @@ $$
 If we do this for every term, we end up with: 
 
 $$
-\begin{align}\exp((T(y))_i \log(\phi_i/\phi_k) + (T(y))_2 \log(\phi_2/\phi_k)) + \dots 
-& + (T(y))_{k-1} \log(\phi_{k-1}/\phi_k) + \log(\phi_k)) \end{align}
+\begin{align}
+\exp((T(y))_i \log(\phi_i/\phi_k) + (T(y))_2 \log(\phi_2/\phi_k)) + \dots + (T(y))_{k-1} \log(\phi_{k-1}/\phi_k) + \log(\phi_k))
+\end{align}
 $$
 
 Which is equivalent to: 
