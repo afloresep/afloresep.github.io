@@ -145,6 +145,7 @@ Given assumption 2:
 $$
 h_\theta(x) = E[y|x]
 $$
+
 and since $y|x;\theta \backsim \mathcal{N}(\mu, \sigma^2)$ and so its expected value is given by $\mu$ then:
 
 $$
@@ -233,15 +234,15 @@ $$
 
 - **Gradient**:
 
-  $$
-  \nabla \ell(\theta) = \sum_{i=1}^n \left( T(y^{(i)}) - a'(\eta^{(i)}) \right) x^{(i)}
-  $$
+$$
+\nabla \ell(\theta) = \sum_{i=1}^n \left( T(y^{(i)}) - a'(\eta^{(i)}) \right) x^{(i)}
+$$
 
 - **Hessian**:
 
-  $$
+$$
   H(\theta) = -\sum_{i=1}^n a''(\eta^{(i)}) x^{(i)} x^{(i)T}
-  $$
+$$
   
 **Iteratively Reweighted Least Squares (IRLS)**:
 
@@ -252,9 +253,10 @@ An efficient algorithm for maximizing $\ell(\theta)$:
 2. **Iterate** until convergence:
 
 Compute weights:
- $$
+
+$$
      w^{(i)} = a''(\eta^{(i)})
-     $$
+$$
 
    Update $\theta$:     
 
@@ -265,6 +267,120 @@ $$
    Where:
 
  $X$ is the design matrix.
+ 
  $W$ is a diagonal matrix of weights $w^{(i)}$.
+ 
  $z$ is the adjusted dependent variable.
+
+Finally, let's look at the softmax example
+
+
+### SoftMax Regression
+
+This example goes beyond the binary classification problem of the logistic regression. In this case we want to classify $y$ in $k$ clusters. 
+
+$$
+y \in  {1,2,...,K}
+$$
+
+To parameterize a multinomial over $k$ possible outcomes, one could use $k$ parameters $\phi_1, ..., \phi_k$ specifying the probability of each of the outcomes. However, these parameters would be redundant, or more formally, they would not be independent (since knowing any $k-1$ of the $\phi_i$'s uniquely determines the last one, as the must satisfy $\sum_{i = 1}^k = 1$). 
+So, we will instead parameterize the multinomial with only $k-1$ parameters, $\phi_i, ..., \phi_{k-1}$, where $\phi_i = p(y = i; \phi)$, and $p(y=k;\phi) = 1 - \sum_{i=1}^{k-1}\phi_i$  
+
+To express the multinomial as an exponential family distribution, we will define $T(y) \in \mathbb{R}^{k-1}$ 
+as a vector. Notice how in  this example $T(y)$ is **NOT** the same as $y$ 
+
+$$
+T(1) =
+\begin{bmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \ \
+T(2) = \begin{bmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \ \
+T(3) = \begin{bmatrix} 0 \\ 0 \\ 1 \\ \vdots \\ 0 \end{bmatrix}, \ \ 
+..., \ \ 
+T(k-1) = \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}, \ \ 
+T(k) = \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, 
+$$
+
+*Notation*:  We will write the $T(y)_i$ to denote the $i$-th element of the vector $T(y)$ 
+Also we introduce an **indicator function**, $1\{·\}$, that will take value $1$ if the condition is **TRUE** and $0$ otherwise. For example: $1\{2=3 \} = 0$ and $1\{4=4\} = 1$. 
+
+So, we can write the relationship between $T(y)$ and $y$ as: 
+
+$$
+T(y)_i = 1\{y=i\}
+$$
+
+Further, we have that $E[(T(y))_i] = P(y=i) = \phi_i$ 
+
+#### Proof that multinomial is part of the exponential family
+
+$$
+\begin{align} p(y;\phi) &= \phi_1^{1\{y=1\}}\phi_2^{1\{y=2\}}... \ \phi_k^{1\{y=k\}} \\
+&= \phi_1^{1\{y=1\}}\phi_2^{1\{y=2\}}... \ \phi_k^{1-\sum_{i=1}^{k-1} 1\{y=i\}} \\
+&= \phi_1^{T(y)_1}\phi_2^{T(y)_2}\ ...\ \phi_k^{1-\sum_{i=1}^{k-1} 1\{y=i\}}
+\end{align}
+$$
+
+Applying exp. and log. 
+
+
+$$
+\begin{align}
+p(y;\phi) &= \exp((T(y))_1 \log(\phi_1) + (T(y))_2 \log(\phi_2) +  \cdots \   \\ +
+& \left(1 - \sum_{i=1}^{k-1}(T(y))_i \right)\log(\phi_k)
+\end{align}
+$$
+
+taking only the last term
+
+$$
+\left(1 - \sum_{i=1}^{k-1}(T(y))_i \right)\log(\phi_k) = -\log(\phi_k)\ (T(y))_1 + \log(\phi_k) (T(y))_2 \ ... \log(\phi_k)(T(y))_k
+$$
+
+So if we put together each $T(y)_i$ we have for $T(y)_1$: 
+
+
+$$
+(T(y))_1 \log(\phi_1) - \log(\phi_k)(T(y))_1 = (T(y))_1(\log(\phi_1) - \log(\phi_k)) = (T(y))_1(\log(\phi_i / \phi_k ))
+$$
+
+If we do this for every term, we end up with: 
+
+$$
+\begin{align}\exp((T(y))_i \log(\phi_i/\phi_k) + (T(y))_2 \log(\phi_2/\phi_k)) + \dots 
+& + (T(y))_{k-1} \log(\phi_{k-1}/\phi_k) + \log(\phi_k)) \end{align}
+$$
+
+Which is equivalent to: 
+
+$$
+= b(y) \exp (\eta^TT(y) - a(\eta))
+$$
+
+
+where
+
+$$
+\eta = 
+\begin{bmatrix}
+\log(\phi_1/\phi_k) \\
+\log(\phi_2/\phi_k) \\
+\vdots \\
+\log(\phi_{k-1}/\phi_k)
+\end{bmatrix}
+$$
+
+$$
+a(\eta) = -\log(\phi_k)
+$$
+
+$$
+b(y) = 1.
+$$
+
+The **link function** is given (for $i =1, ..., k)$ by 
+
+$$
+\eta_i = \log  \frac{\phi_i}{\phi_k}
+$$
+
+
 
