@@ -441,7 +441,7 @@ In other words, our hypothesis will output
 
 $$
 \begin{align}
-h_\theta(x) &=  E[T(y) | x; \theta] \\
+h_\theta(x) &=  E[T(y) / x; \theta] \\
 &= E  \left[
 \begin{array}{c}
 \mathbb{1}\{y = 1\} \\
