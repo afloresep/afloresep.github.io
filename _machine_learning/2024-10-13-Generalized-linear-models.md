@@ -441,7 +441,7 @@ In other words, our hypothesis will output
 
 $$
 \begin{align}
-h_\theta(x) &=  E[T(y) / x; \theta] \\
+h_\theta(x) &=  E[T(y)/ x; \theta] \\
 &= E  \left[
 \begin{array}{c}
 \mathbb{1}\{y = 1\} \\
@@ -462,7 +462,7 @@ h_\theta(x) &=  E[T(y) / x; \theta] \\
 \end{align} 
 $$
 
-This means that our hypothesis will output the estimated probability that $p(y= i | x; \theta)$ for every value of $i$ 
+This means that our hypothesis will output the estimated probability that $p(y= i/ x; \theta)$ for every value of $i$ 
 
 
 
