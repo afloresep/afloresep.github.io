@@ -392,4 +392,78 @@ $$
 $$
 
 
+We can also do: 
+
+$$
+\begin{align}
+e^{\eta_i} = \phi_i / \phi_k \\
+\phi_k e^{\eta_i} = \phi_i  \\
+\phi_k \sum_{i=1}^k e^{\eta_i} = \sum_{i=1}^{k}\phi_i
+\end{align}
+$$
+
+And since 
+
+$$
+\sum_{i=1}^{k}\phi_i = 1 
+$$
+
+we can express $\phi_k$ as: 
+
+$$
+\phi_k = \frac{1}{\sum^k_{i=1} e ^{\eta_i}}
+$$
+
+
+And combining this definition of $\phi_k$ with $e^{\eta_i} = \phi_i / \phi_k$ we can express $\phi_i$ as
+
+$$
+\phi_i = \frac{e^{\eta_i}}{\sum_{i=1}^k e^{\eta_i}}
+$$
+
+This function mapping from the η's to the  φ’s is called the [[Softmax Function]]
+To complete our model, we use Assumption 3. 
+
+The natural parameter $η$ and the inputs $x$ are related linearly: $η = θ^Tx$. (Or, if $η$ is vector-valued, then $ηi = θ^T_i x$)
+{: .notice--info}
+
+So, have $\eta_i = \theta^T_i x$ (for $i = 1, ..., k- 1)$, where $\theta_1, ...,\theta_{k-1}  \in \mathbb{R}^{n+1}$ are the parameters of our model. Hence, our model assumes that the conditional distribution of $y$ given $x$ is given by: 
+
+$$
+\begin{align}
+p(y= i | x; \theta)  &= \phi_i \\
+&= \frac{e^{\eta_i}}{\sum^k_{j= 1} e^{\eta_j}} \\
+&= \frac{e^{\theta_i^Tx}}{\sum^k_{j=1}{e^{\theta^T_jx}}}
+\end{align}
+$$
+
+In other words, our hypothesis will output
+
+$$
+\begin{align}
+h_\theta(x) &=  E[T(y) | x; \theta] \\
+&= E  \left[
+\begin{array}{c}
+\mathbb{1}\{y = 1\} \\
+\mathbb{1}\{y = 2\} \\
+\vdots \\
+\mathbb{1}\{y = k-1\}
+\end{array}
+\ \middle|\ x; \theta
+\right] \\
+&= \begin{bmatrix} \phi_1 \\ \phi_2 \\ \vdots \\\phi_{{k-1}}\end{bmatrix} \\
+
+ &= 
+ \begin{bmatrix}
+ \frac{\text{exp}({\theta_1^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}} \\
+  \frac{\text{exp}({\theta_2^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}} \\
+  \vdots \\
+    \frac{\text{exp}({\theta_{k-1}^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}}
+\end{bmatrix}
+\end{align} 
+$$
+
+This means that our hypothesis will output the estimated probability that $p(y= i | x; \theta)$ for every value of $i$ 
+
+
 
