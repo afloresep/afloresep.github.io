@@ -441,8 +441,8 @@ In other words, our hypothesis will output
 
 $$
 \begin{align}
-h_\theta(x) &=  E[T(y)/ x; \theta] \\
-&= E  \left[
+h_\theta(x) &= \mathbb{E}\left[T(y) \mid x; \theta\right] \\
+&= \mathbb{E} \left[
 \begin{array}{c}
 \mathbb{1}\{y = 1\} \\
 \mathbb{1}\{y = 2\} \\
@@ -451,15 +451,15 @@ h_\theta(x) &=  E[T(y)/ x; \theta] \\
 \end{array}
 \ \middle|\ x; \theta
 \right] \\
-&= \begin{bmatrix} \phi_1 \\ \phi_2 \\ \vdots \\\phi_{{k-1}}\end{bmatrix} \\
+&= \begin{bmatrix} \phi_1 \\ \phi_2 \\ \vdots \\ \phi_{k-1} \end{bmatrix} \\
 &= 
 \begin{bmatrix}
-\frac{\text{exp}({\theta_1^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}} \\
-\frac{\text{exp}({\theta_2^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}} \\
+\frac{\exp\left(\theta_1^T x\right)}{\sum_{j=1}^{k} \exp\left(\theta_j^T x\right)} \\
+\frac{\exp\left(\theta_2^T x\right)}{\sum_{j=1}^{k} \exp\left(\theta_j^T x\right)} \\
 \vdots \\
-\frac{\text{exp}({\theta_{k-1}^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}}
+\frac{\exp\left(\theta_{k-1}^T x\right)}{\sum_{j=1}^{k} \exp\left(\theta_j^T x\right)}
 \end{bmatrix}
-\end{align} 
+\end{align}
 $$
 
 This means that our hypothesis will output the estimated probability that $p(y= i/ x; \theta)$ for every value of $i$ 
