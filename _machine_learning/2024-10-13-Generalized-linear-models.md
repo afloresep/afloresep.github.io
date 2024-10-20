@@ -452,13 +452,12 @@ h_\theta(x) &=  E[T(y) | x; \theta] \\
 \ \middle|\ x; \theta
 \right] \\
 &= \begin{bmatrix} \phi_1 \\ \phi_2 \\ \vdots \\\phi_{{k-1}}\end{bmatrix} \\
-
- &= 
- \begin{bmatrix}
- \frac{\text{exp}({\theta_1^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}} \\
-  \frac{\text{exp}({\theta_2^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}} \\
-  \vdots \\
-    \frac{\text{exp}({\theta_{k-1}^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}}
+&= 
+\begin{bmatrix}
+\frac{\text{exp}({\theta_1^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}} \\
+\frac{\text{exp}({\theta_2^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}} \\
+\vdots \\
+\frac{\text{exp}({\theta_{k-1}^Tx})}{\sum^k_{j=1}{\text{exp}{(\theta^T_jx)}}}
 \end{bmatrix}
 \end{align} 
 $$
