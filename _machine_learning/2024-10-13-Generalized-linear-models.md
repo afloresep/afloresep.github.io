@@ -16,9 +16,16 @@ $$
 **Where:**
 
 $y$ is the random variable or response variable.
+
 $\eta$ is the **natural parameter** (also known as the **canonical parameter**). Determines the shape or characteristics of the distribution.
+
+
 $T(y)$ is the **sufficient statistic** (often $T(y) = y$).  Contains all the information needed from the data regarding the parameter $\eta$.
+In simpler terms, $y$ is the raw data, while $T(y)$ is the form that the response variable takes when incorporated into the mathematical structure of the GLM. The transformation is needed to adapt to different types of response distributions.
+In many cases, $T(y)$ might just be the identity function, meaning $T(y)=y$. However, in some cases, $T(y)$  can take other forms. For instance, in a **binomial model**, $T(y)$ can be a binomial proportion, or in **Poisson regression**, it could involve a logarithmic transformation. The exact form of $T(y)$ depends on the distribution family of the data.
+
 $a(\eta)$ is the **log-partition function**, ensuring the distribution sums or integrates to one. Acts as a normalizing constant to ensure the probabilities sum to one.
+
 $b(y)$ is the **base measure**, often a function involving $y$ that ensures the distribution is properly scaled.
 
 This form is powerful because it encompasses many common distributions (Gaussian, Bernoulli, Poisson, etc.) and provides a unified way to work with them.
@@ -143,9 +150,10 @@ To show that least-squares is a special case of the GLM family, consider the set
 Given assumption 2: 
 
 $$
-h_\theta(x) = E[y|x]
+h_\theta(x) = E[y/x]
 $$
-and since $y|x;\theta \backsim \mathcal{N}(\mu, \sigma^2)$ and so its expected value is given by $\mu$ then:
+
+and since $y/x;\theta \backsim \mathcal{N}(\mu, \sigma^2)$ and so its expected value is given by $\mu$ then:
 
 $$
 \begin{align*}
@@ -165,7 +173,7 @@ $$
 \phi = \frac{1}{1+ e^{-\eta}}
 $$
 
-So if $y|x;\theta \backsim \text{Bernoulli}(\phi)$, then by the first assumption and following a similar derivation as the one for ordinary least squares, we get: 
+So if $y/x;\theta \backsim \text{Bernoulli}(\phi)$, then by the first assumption and following a similar derivation as the one for ordinary least squares, we get: 
 
 $$
 \begin{align*}
@@ -233,15 +241,15 @@ $$
 
 - **Gradient**:
 
-  $$
-  \nabla \ell(\theta) = \sum_{i=1}^n \left( T(y^{(i)}) - a'(\eta^{(i)}) \right) x^{(i)}
-  $$
+$$
+\nabla \ell(\theta) = \sum_{i=1}^n \left( T(y^{(i)}) - a'(\eta^{(i)}) \right) x^{(i)}
+$$
 
 - **Hessian**:
 
-  $$
+$$
   H(\theta) = -\sum_{i=1}^n a''(\eta^{(i)}) x^{(i)} x^{(i)T}
-  $$
+$$
   
 **Iteratively Reweighted Least Squares (IRLS)**:
 
@@ -252,9 +260,10 @@ An efficient algorithm for maximizing $\ell(\theta)$:
 2. **Iterate** until convergence:
 
 Compute weights:
- $$
+
+$$
      w^{(i)} = a''(\eta^{(i)})
-     $$
+$$
 
    Update $\theta$:     
 
@@ -265,6 +274,195 @@ $$
    Where:
 
  $X$ is the design matrix.
+ 
  $W$ is a diagonal matrix of weights $w^{(i)}$.
+ 
  $z$ is the adjusted dependent variable.
+
+Finally, let's look at the softmax example
+
+
+### SoftMax Regression
+
+This example goes beyond the binary classification problem of the logistic regression. In this case we want to classify $y$ in $k$ clusters. 
+
+$$
+y \in  {1,2,...,K}
+$$
+
+To parameterize a multinomial over $k$ possible outcomes, one could use $k$ parameters $\phi_1, ..., \phi_k$ specifying the probability of each of the outcomes. However, these parameters would be redundant, or more formally, they would not be independent (since knowing any $k-1$ of the $\phi_i$'s uniquely determines the last one, as the must satisfy $\sum_{i = 1}^k = 1$). 
+So, we will instead parameterize the multinomial with only $k-1$ parameters, $\phi_i, ..., \phi_{k-1}$, where $\phi_i = p(y = i; \phi)$, and $p(y=k;\phi) = 1 - \sum_{i=1}^{k-1}\phi_i$  
+
+To express the multinomial as an exponential family distribution, we will define $T(y) \in \mathbb{R}^{k-1}$ 
+as a vector. Notice how in  this example $T(y)$ is **NOT** the same as $y$ 
+
+$$
+T(1) =
+\begin{bmatrix} 1 \\ 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \ \
+T(2) = \begin{bmatrix} 0 \\ 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, \ \
+T(3) = \begin{bmatrix} 0 \\ 0 \\ 1 \\ \vdots \\ 0 \end{bmatrix}, \ \ 
+..., \ \ 
+T(k-1) = \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 1 \end{bmatrix}, \ \ 
+T(k) = \begin{bmatrix} 0 \\ 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}, 
+$$
+
+*Notation*:  We will write the $T(y)_i$ to denote the $i$-th element of the vector $T(y)$ 
+Also we introduce an **indicator function**, $1\{·\}$, that will take value $1$ if the condition is **TRUE** and $0$ otherwise. For example: $1\{2=3 \} = 0$ and $1\{4=4\} = 1$. 
+
+So, we can write the relationship between $T(y)$ and $y$ as: 
+
+$$
+T(y)_i = 1\{y=i\}
+$$
+
+Further, we have that $E[(T(y))_i] = P(y=i) = \phi_i$ 
+
+#### Proof that multinomial is part of the exponential family
+
+$$
+\begin{align}
+p(y;\phi) &= \phi_1^{1\{y=1\}}\phi_2^{1\{y=2\}}\cdots \phi_k^{1\{y=k\}} \\
+         &= \phi_1^{1\{y=1\}}\phi_2^{1\{y=2\}}\cdots \phi_k^{1 - \sum_{i=1}^{k-1} 1\{y=i\}} \\
+         &= \phi_1^{T(y)_1}\phi_2^{T(y)_2} \cdots \phi_k^{1 - \sum_{i=1}^{k-1} 1\{y=i\}}
+\end{align}
+$$
+
+Applying exp. and log. 
+
+
+$$
+\begin{align}
+p(y;\phi) &= \exp((T(y))_1 \log(\phi_1) + (T(y))_2 \log(\phi_2) +  \cdots \   \\ +
+& \left(1 - \sum_{i=1}^{k-1}(T(y))_i \right)\log(\phi_k)
+\end{align}
+$$
+
+taking only the last term
+
+$$
+\left(1 - \sum_{i=1}^{k-1}(T(y))_i \right)\log(\phi_k) = -\log(\phi_k)\ (T(y))_1 + \log(\phi_k) (T(y))_2 \ ... \log(\phi_k)(T(y))_k
+$$
+
+So if we put together each $T(y)_i$ we have for $T(y)_1$: 
+
+
+$$
+(T(y))_1 \log(\phi_1) - \log(\phi_k)(T(y))_1 = (T(y))_1(\log(\phi_1) - \log(\phi_k)) = (T(y))_1(\log(\phi_i / \phi_k ))
+$$
+
+If we do this for every term, we end up with: 
+
+$$
+\begin{align}
+\exp((T(y))_i \log(\phi_i/\phi_k) + (T(y))_2 \log(\phi_2/\phi_k)) + \dots + (T(y))_{k-1} \log(\phi_{k-1}/\phi_k) + \log(\phi_k))
+\end{align}
+$$
+
+Which is equivalent to: 
+
+$$
+= b(y) \exp (\eta^TT(y) - a(\eta))
+$$
+
+
+where
+
+$$
+\eta = 
+\begin{bmatrix}
+\log(\phi_1/\phi_k) \\
+\log(\phi_2/\phi_k) \\
+\vdots \\
+\log(\phi_{k-1}/\phi_k)
+\end{bmatrix}
+$$
+
+$$
+a(\eta) = -\log(\phi_k)
+$$
+
+$$
+b(y) = 1.
+$$
+
+The **link function** is given (for $i =1, ..., k)$ by 
+
+$$
+\eta_i = \log  \frac{\phi_i}{\phi_k}
+$$
+
+
+We can also do: 
+
+$$
+\begin{align}
+e^{\eta_i} = \phi_i / \phi_k \\
+\phi_k e^{\eta_i} = \phi_i  \\
+\phi_k \sum_{i=1}^k e^{\eta_i} = \sum_{i=1}^{k}\phi_i
+\end{align}
+$$
+
+And since 
+
+$$
+\sum_{i=1}^{k}\phi_i = 1 
+$$
+
+we can express $\phi_k$ as: 
+
+$$
+\phi_k = \frac{1}{\sum^k_{i=1} e ^{\eta_i}}
+$$
+
+
+And combining this definition of $\phi_k$ with $e^{\eta_i} = \phi_i / \phi_k$ we can express $\phi_i$ as
+
+$$
+\phi_i = \frac{e^{\eta_i}}{\sum_{i=1}^k e^{\eta_i}}
+$$
+
+This function mapping from the η's to the  φ’s is called the [[Softmax Function]]
+To complete our model, we use Assumption 3. 
+
+The natural parameter $η$ and the inputs $x$ are related linearly: $η = θ^Tx$. (Or, if $η$ is vector-valued, then $ηi = θ^T_i x$)
+{: .notice--info}
+
+So, have $\eta_i = \theta^T_i x$ (for $i = 1, ..., k- 1)$, where $\theta_1, ...,\theta_{k-1}  \in \mathbb{R}^{n+1}$ are the parameters of our model. Hence, our model assumes that the conditional distribution of $y$ given $x$ is given by: 
+
+$$
+\begin{align}
+p(y= i | x; \theta)  &= \phi_i \\
+&= \frac{e^{\eta_i}}{\sum^k_{j= 1} e^{\eta_j}} \\
+&= \frac{e^{\theta_i^Tx}}{\sum^k_{j=1}{e^{\theta^T_jx}}}
+\end{align}
+$$
+
+In other words, our hypothesis will output
+
+$$
+\begin{align}
+h_\theta(x) &= \mathbb{E}\left[T(y) \mid x; \theta\right] \\
+&= \mathbb{E} \left[
+\begin{array}{c}
+\mathbb{1}\{y = 1\} \\
+\mathbb{1}\{y = 2\} \\
+\vdots \\
+\mathbb{1}\{y = k-1\}
+\end{array}
+\ \middle|\ x; \theta
+\right] \\
+&= \begin{bmatrix} \phi_1 \\ \phi_2 \\ \vdots \\ \phi_{k-1} \end{bmatrix} \\
+&= 
+\begin{bmatrix}
+\frac{\exp\left(\theta_1^T x\right)}{\sum_{j=1}^{k} \exp\left(\theta_j^T x\right)} \\
+\frac{\exp\left(\theta_2^T x\right)}{\sum_{j=1}^{k} \exp\left(\theta_j^T x\right)} \\
+\vdots \\
+\frac{\exp\left(\theta_{k-1}^T x\right)}{\sum_{j=1}^{k} \exp\left(\theta_j^T x\right)}
+\end{bmatrix}
+\end{align}
+$$
+
+This means that our hypothesis will output the estimated probability that $p(y= i/ x; \theta)$ for every value of $i$ 
+
+
 
