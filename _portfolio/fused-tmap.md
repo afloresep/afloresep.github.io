@@ -2,6 +2,7 @@
 title: "Fused Fingerprints TMAP"
 excerpt: "Visualization of large ChemBL dataset merging MAPC fingerprints for every entry with same Target ID<br/><img src='/images/nice_label_tmap.png'>"
 collection: portfolio
+date: 2024-09-11
 ---
 
 This project implements a novel approach to visualizing chemical space using a combination of molecular fingerprints and the TMAP (Tree MAP) algorithm. The main goal is to create a meaningful representation of chemical compounds based on their structural similarities and biological activities.
