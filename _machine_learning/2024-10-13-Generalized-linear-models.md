@@ -6,7 +6,7 @@ permalink: /machine-learning/generalized-linear-models/
 ---
 
 
-In our exploration of **Classification** and **UniBe/Machine Learning/Linear Regression|Linear Regression,** we've encountered methods like logistic regression and ordinary least squares regression. These are not isolated techniques but are part of a broader and more powerful framework known as **Generalized Linear Models (GLMs)**. GLMs unify various statistical models under a common umbrella, allowing us to model different types of data (binary, count, continuous) using a consistent approach. Understanding GLMs enhances our ability to select appropriate models for diverse machine learning tasks and deepens our comprehension of the underlying statistical principles.
+In our exploration of **Classification** and **Linear Regression** we've encountered methods like logistic regression and ordinary least squares regression. These are not isolated techniques but are part of a broader and more powerful framework known as **Generalized Linear Models (GLMs)**. GLMs unify various statistical models under a common umbrella, allowing us to model different types of data (binary, count, continuous) using a consistent approach. Understanding GLMs enhances our ability to select appropriate models for diverse machine learning tasks and deepens our comprehension of the underlying statistical principles.
 ## Exponential Family
 At the heart of GLMs is the **Exponential Family** of probability distributions. A probability distribution belongs to the exponential family if it can be expressed in the following canonical form:
 
