@@ -38,6 +38,9 @@ I will be documenting my progress in **HS2024 - Computer Vision**, a course offe
 2. **[Edge detection](https://afloresep.github.io/computer-vision/edge-detection/):** Noise detection, gaussian filters, separability of a convolution, edge detection and partial derivative filters.
 3. **[Locating and Describing interest points](https://afloresep.github.io/computer-vision/interest-points/):** Locating Interest Points at Different Scales, cornerness function, Harris detector, Difference of Gaussians...
 
+#### Preprocessing
+1. **[Fitting](https://afloresep.github.io/computer-vision/fitting/)**: Fitting points to line. Total Least Squares and Random Sample Consensus (RANSAC) method for line fitting. 
+
 ## Machine Learning
 I will be documenting my progress in **HS2024 - Machine Learning**, a course offered by Universität Bern, which covers key concepts in Machine Learning.
 
