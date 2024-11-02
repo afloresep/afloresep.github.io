@@ -40,6 +40,8 @@ I will be documenting my progress in **HS2024 - Computer Vision**, a course offe
 
 #### Preprocessing
 1. **[Fitting](https://afloresep.github.io/computer-vision/fitting/)**: Fitting points to line. Total Least Squares and Random Sample Consensus (RANSAC) method for line fitting. 
+2. **[Image Alignment](https://afloresep.github.io/computer-vision/image-alignment/)**: robust methods for aligning images by detecting and matching distinctive features, using transformations like affine and homography. 
+
 
 ## Machine Learning
 I will be documenting my progress in **HS2024 - Machine Learning**, a course offered by Universität Bern, which covers key concepts in Machine Learning.
