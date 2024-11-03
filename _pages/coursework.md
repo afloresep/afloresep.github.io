@@ -52,7 +52,10 @@ Supervised Learning
 - [Linear Regression](https://afloresep.github.io/machine-learning/linear-regression) & [Probabilistc interpretation](https://afloresep.github.io/machine-learning/probabilistic-interpretation/)
 - [Classification](https://afloresep.github.io/machine-learning/classification)
 - [Generalized Linear Models](https://afloresep.github.io/machine-learning/generalized-linear-models)
+- [Generative Learniing Algorithms](https://afloresep.github.io/machine-learning/generative-learning-algorithms/): Gaussian Discriminant analysis model & Naive Bayes Classifier
 
+
+----
 Unsupervised learning
 
 Reinforcement learning
