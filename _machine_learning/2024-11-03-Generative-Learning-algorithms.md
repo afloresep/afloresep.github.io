@@ -45,7 +45,7 @@ Where:
 - $p(y)$ is the **prior**: the overall probability of a particular class (e.g., how common are dogs vs. elephants).
 - $p(x)$ is the marginal likelihood: the overall probability of observing the features $x$, summed over all possible values of $y$.
 
-Here, the denominator is given by $p(x) = p(x\mid y = 1)p(y = 1) + p(x\mid y = 0)p(y = 0)$ (you should be able to verify that this is true from the standard properties of probabilities), and thus can also be expressed in terms of the quantities $p(x|y)$ and $p(y)$  that we’ve learned. 
+Here, the denominator is given by $p(x) = p(x\mid y = 1)p(y = 1) + p(x\mid y = 0)p(y = 0)$ (you should be able to verify that this is true from the standard properties of probabilities), and thus can also be expressed in terms of the quantities $p(x \mid y)$ and $p(y)$  that we’ve learned. 
 
 $$
 \text{arg max}_y p(y \mid x) = \text{arg max} \frac {p(x \mid y) p(y)}{p(x)}
