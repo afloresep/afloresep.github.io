@@ -190,7 +190,7 @@ collections:
   computer_vision:
     output: true
     permalink: /:collection/:path/
-  applied_optimization:
+  docker:
     output: true
     permalink: /:collection/:path/
   machine_learning:
@@ -273,10 +273,10 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _applied_optimization
+  # _docker
   - scope:
       path: ""
-      type: applied_optimization
+      type: docker
     values:
       layout: single
       author_profile: true

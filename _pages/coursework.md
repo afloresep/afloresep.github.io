@@ -79,6 +79,17 @@ Hopefully by the end of the course I will be able to:
 1. [Introduction and Fundamental Definitions](https://afloresep.github.io/applied-optimization/fundamental-definitions/)
 
 
+
+
+## Docker
+TALK ABOUT DOCKER
+
+### Course outline: 
+1. [Introduction to Docker](https://afloresep.github.io/docker/docker-introduction/)
+2. [Docker Containers](https://afloresep.github.io/docker/docker-containers/)
+3. [Docker Network](https://afloresep.github.io/docker/docker-network/)
+4. [Docker Images](https://afloresep.github.io/docker/docker-images/)
+
 ---
 
 As I progress through my PhD and research projects, I will continue to update this space with more notes, tutorials, and insights. Keep an eye out for new additions, and feel free to reach out if you'd like to discuss any of these topics in more detail!
