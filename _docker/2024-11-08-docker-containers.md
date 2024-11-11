@@ -8,29 +8,105 @@ date: 2024-11-08
 
 ### Understanding containers
 #### What is a container? 
-A container is an instance of [[Docker Images]] running as a process. We can have many containers running off the same image. 
+A container is an instance of [Docker Images](https://afloresep.github.io/docker/docker-images/) running as a process. We can have many containers running off the same image. Containers leverage features like namespaces, cgroups, and UFS to provide consistent, and efficient runtime environment. 
 
 
 ### **Working with Containers**
 #### Creating and running containers.
 > 3 mayor ways to run containers
-> - Locally (Docker Desktop, RD)
-> - Servers (Docker Engine, K8s)
-> - PaaS (Cloud Run, Fargate)
+> - Locally (Docker Desktop, RD) `docker run -d -p 8080:80 nginx`
+> - Servers (Docker Engine, K8s) `docker run -d -p 8080:80 --name my_nginx nginx`
+> - PaaS (Cloud Run, Fargate). 
 
 #### Detached vs. foreground modes.
+- **Detached Mode (-d):** The container runs in the background, allowing the terminal to be used for other commands.
+```bash
+docker run -d nginx
+```
 
-#### Executing commands inside containers.
+- **Foreground Mode**: The container process runs attached to the terminal session, showing its logs and output.
+```bash
+docker run nginx
+```
+
+#### **Executing Commands Inside Containers**
+To interact with a running container and execute commands:
+```bash
+docker exec -it <container_name> <command>
+```
+For example:
+```bash
+docker exec -it my_nginx bash
+```
+This command opens a shell inside the `my_nginx` container.
+
+```bash
+docker exec -it my_db mysql
+```
 
 ### **Container Lifecycle**
-#### Starting, stopping, and restarting containers.
-#### Pausing and unpausing.
-#### Removing containers.
+
+#### **Starting, Stopping, and Restarting Containers**
+- **Start a container**:
+  ```bash
+  docker start <container_name>
+  ```
+- **Stop a container**:
+  ```bash
+  docker stop <container_name>
+  ```
+- **Restart a container**:
+  ```bash
+  docker restart <container_name>
+  ```
+
+#### **Pausing and Unpausing Containers**
+- **Pause a container**:
+  ```bash
+  docker pause <container_name>
+  ```
+  This command suspends all processes within the container.
+- **Unpause a container**:
+  ```bash
+  docker unpause <container_name>
+  ```
+
+#### **Removing Containers**
+To remove a container after it has been stopped:
+```bash
+docker rm <container_name>
+```
+To remove all stopped containers:
+```bash
+docker container prune
+```
 
 ### **Container Isolation and Security**
-#### Namespaces.
-#### Control groups (cgroups).
-#### Capabilities and security best practices.
+
+#### **Namespaces**
+Namespaces provide process and resource isolation for containers, ensuring that containers operate in their own environments. Types of namespaces include:
+- **PID Namespace**: Isolates process IDs.
+- **Network Namespace**: Isolates network interfaces.
+- **Mount Namespace**: Isolates the filesystem.
+
+#### **Control Groups (cgroups)**
+Cgroups limit and allocate resources like CPU, memory, and disk I/O to ensure that a single container cannot overwhelm the host system. You can define limits using flags like:
+```bash
+docker run -m 512m --cpus="1.0" nginx
+```
+This command limits the container to 512MB of memory and 1 CPU core.
+
+#### **Capabilities and Security Best Practices**
+- **Capabilities**: Docker provides a set of capabilities that can be restricted to limit the privileges of a container. By default, Docker drops many capabilities to reduce the attack surface. You can drop additional capabilities using:
+  ```bash
+  docker run --cap-drop NET_RAW nginx
+  ```
+- **Security Best Practices**:
+  - Run containers as non-root users.
+  - Use read-only file systems for containers.
+  - Avoid using `--privileged` mode unless necessary.
+  - Use secure images from trusted sources.
+
 
 ---
 ### Docker Container Commands
@@ -120,3 +196,13 @@ docker container run --publish 80:80 nginx
   docker container stats
   ```
   - Provides a real-time view of container resource usage (CPU, memory, network I/O), similar to `htop`.
+
+#### **COPYING FILES TO AND FROM CONTAINERS**
+- **Copy a file from the host to the container**:
+  ```bash
+  docker cp <file_path> <container_name>:<container_path>
+  ```
+- **Copy a file from the container to the host**:
+  ```bash
+  docker cp <container_name>:<container_path> <host_path>
+  ```
