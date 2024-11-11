@@ -2,7 +2,7 @@
 title: "Docker Containers"
 excerpt: "Introduction and basic of docker containers."
 collection: docker
-permalink: /docker/docker-introduction/
+permalink: /docker/docker-containers/
 date: 2024-11-08
 ---
 
