@@ -7,7 +7,7 @@ date: 2024-11-08
 ---
 ### Understanding containers
 #### What is a container? 
-A container is an instance of [[Docker Images]] running as a process. We can have many containers running off the same image. 
+A container is an instance of [Docker Images](https://afloresep.github.io/docker/docker-introduction/) running as a process. We can have many containers running off the same image. 
 
 ### **Working with Containers**
 #### Creating and running containers.
