@@ -42,6 +42,7 @@ During my work at UniBe I came to realize the importance of DevOps skills in mod
 2. [Docker Containers](https://afloresep.github.io/docker/docker-containers/)
 3. [Docker Network](https://afloresep.github.io/docker/docker-network/)
 4. [Docker Images](https://afloresep.github.io/docker/docker-images/)
+5. [Docker Compose](https://afloresep.github.io/docker/docker-compose/)
 
 
 ## Applied Optimization
