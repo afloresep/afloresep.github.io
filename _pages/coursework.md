@@ -43,6 +43,7 @@ During my work at UniBe I came to realize the importance of DevOps skills in mod
 3. [Docker Network](https://afloresep.github.io/docker/docker-network/)
 4. [Docker Images](https://afloresep.github.io/docker/docker-images/)
 5. [Docker Compose](https://afloresep.github.io/docker/docker-compose/)
+6. [Docker Swarm Mode](https://afloresep.github.io/docker/swarm-mode/)
 
 
 ## Applied Optimization
