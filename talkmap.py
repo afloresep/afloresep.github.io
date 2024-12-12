@@ -8,7 +8,6 @@
 # This scrapes the location YAML field from each .md file, geolocates it with
 # geopy/Nominatim, and uses the getorg library to output data, HTML,
 # and Javascript for a standalone cluster map.
-#
 # Requires: glob, getorg, geopy
 
 import glob
