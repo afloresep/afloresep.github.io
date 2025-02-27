@@ -1,5 +1,5 @@
 ---
-title: 'Introduciton to Bayes'
+title: 'Likelihood Funtion simply explained'
 date: 2025-02-27
 permalink: /posts/2025/02/likelihood-function/
 tags:
