@@ -1,5 +1,5 @@
 ---
-title: 'Introduciton to Bayes'
+title: 'Introduction to Bayes'
 date: 2025-02-27
 permalink: /posts/2025/02/Intro_Bayes/
 tags:
@@ -34,7 +34,7 @@ What is the actual answer? If you tested positive, there's only a **9%** chance 
 
 
 ### Likelihood Function
-The **[Likelihood function](https://afloresep.github.io/posts/2025/2/likelihood-function/)** is a fundamental concept in statistical inference. In essence, represents how probable the observed *dependent* data ($y$) is for different values of a parameter ($\theta$). 
+The **[Likelihood function](https://afloresep.github.io/posts/2025/02/likelihood-function/)** is a fundamental concept in statistical inference. In essence, represents how probable the observed *dependent* data ($y$) is for different values of a parameter ($\theta$). 
 Formally, for a given set of points $D= \{x_1, x_2,..., x_n\}$ the likelihood function is:
 
 $$
