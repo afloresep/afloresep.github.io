@@ -38,7 +38,7 @@ We apply multiple hash functions to this fingerprint. For simplicity, let's say 
 We'll focus on Table 1 for this example.
 
 4. Binary Representation 
-We convert the MinHash values to binary. Let's say we're using the last 4 bits of each number: 42 -> 101010 -> 1010 17 -> 010001 -> 0001
+We convert the MinHash values to binary. Let's say we're using the last 4 bits of each number: 42 -> 10**1010** -> 1010 and for  17 -> 01**0001** -> 0001
 
 So for Table 1, our hash becomes: **1010***0001*
 
