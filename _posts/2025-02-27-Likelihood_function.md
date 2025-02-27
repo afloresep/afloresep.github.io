@@ -16,7 +16,7 @@ $L(\theta) = P(D \vert \theta$), which tells us the **probability of the observe
 It can also be written like this:
 
 $$
-L(θ; y, X) = p(y | X; θ)
+L(θ; y, X) = p(y \vert  X; θ)
 $$
 
 Where:
@@ -25,16 +25,16 @@ Where:
 - $y$ is our observed dependent variable
 - $X$ is our matrix of independent variables
 
-If we have multiple observations, say a dataset with $n$ examples $(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)$ the likelihood function is the **product of the probabilities** of all the observed outcomes $y_i$​ given their corresponding inputs $x_i$​. This is because the observations are typically assumed to be independent ([[Independent and identically distributed|IID]]) so we multiply the individual probabilities.
+If we have multiple observations, say a dataset with $n$ examples $(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)$ the likelihood function is the **product of the probabilities** of all the observed outcomes $y_i$​ given their corresponding inputs $x_i$​. This is because the observations are typically assumed to be independent (Independent and identically distributed) so we multiply the individual probabilities.
 
 
 The likelihood function $L(\theta)$ is:
 
 $$
-L(\theta) = \prod_{i=1}^n p(y_i | x_i; \theta)
+L(\theta) = \prod_{i=1}^n p(y_i \vert  x_i; \theta)
 $$
 
-Substitute $p(y_i | x_i; \theta)$ for each observation:
+Substitute $p(y_i \vert  x_i; \theta)$ for each observation:
 
 $$
 L(\theta) = \prod_{i=1}^n \left[ (h_\theta(x_i))^{y_i} (1 - h_\theta(x_i))^{1 - y_i} \right]
