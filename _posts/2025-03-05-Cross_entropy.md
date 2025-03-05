@@ -8,7 +8,7 @@ tags:
 ---
 
 ### What is Cross-Entropy?
-Cross-entropy is one of many possible [[cost function|loss function]] that we might consider choosing for our model and is typically used in **Categorical Classification**. This means, a model that aims to predict whether our input data is one in a finite size possible classes.
+Cross-entropy is one of many possible [cost function](https://afloresep.github.io/posts/2025/03/cost-function) that we might consider choosing for our model and is typically used in **Categorical Classification**. This means, a model that aims to predict whether our input data is one in a finite size possible classes.
 
 For example, if we want to predict the next letter in a word, cross-entropy could be use to measure the loss between the letter predicted -which has to be one of 28 letters in our vocabulary, these are our possible classes- and the actual letter that proceeds.
 
@@ -32,7 +32,7 @@ Where:
 
 $\mathbf{y} \in \mathbb{R}^V$ is a one-hot vector representing the true class (of $V$ possible classes/tokens).
 
-$\hat{\mathbf{y}} \in \mathbb{R}^V$ is the predicted probability distribution (often obtained via a [[UniBe/Machine Learning/Softmax Function|Softmax Function]] layer).
+$\hat{\mathbf{y}} \in \mathbb{R}^V$ is the predicted probability distribution (often obtained via a (softmax)[https://afloresep.github.io/posts/2025/03/softmax/] layer).
 
 For example, if we are trying to predict the next letter in a word or a phrase, $V$ would be the alphabet, hence $\mathbf{y} \in \mathbb{R}^{26}$, and if our predicted next letter is _'c'_ then our vector $\hat y$ would be
 
@@ -67,10 +67,10 @@ $$
 J(\theta) = \frac{1}{n} \sum_{j=1}^{n} \Bigl( -\sum_{i=1}^{V} y_j^{(i)} \log(\hat{y}_j^{(i)}) \Bigr)
 $$
 
-#### 1. $\frac{1}{n} \sum_{j=1}^{n} (·)$
+## 1. $\frac{1}{n} \sum_{j=1}^{n} (·)$
 We already explained this part, the loss function $\mathcal{L}$ is calculated between two points. For our cost function we compute the loss function for every point in our dataset of size $n$. So all this does is sum every loss for points $j$ in $n$ and average the values $1/n$ 
 
-#### 2. $-\sum_{i=1}^{V} (·)$
+## 2. $-\sum_{i=1}^{V} (·)$
 We sum because we want to integrate the loss in **all** classes ($i \in V$) for every point ($j \in n$) in our dataset. 
 As we will see later, in cases where the **true label** is represented as one-hot encoded vector it really does not make a difference to sum or not -as the product will be 0 for those clases different from the true label-, but for soft targets this formula is applicable. Therefore, this is the **generalized** mathematical **expression**. 
 
@@ -85,10 +85,10 @@ Okay. So which $\theta$ do we choose? Obviously, we want to **maximize** this lo
 In essence, the cost function is a reformulation of the log-likelihood that fits into a minimization framework. As the cost decreases, the log-likelihood increases. 
 {: .notice--info}
 
-The **maximum likelihood** of our model (i.e. maximizing $L(\theta)$) is equivalent to minimizing $J(\theta))$
+The **maximum likelihood** of our model, which is to say maximize $L(\theta)$ is the equivalent to minimizing $J(\theta))$
 {: .notice--info}
 
-#### 3. $y_j^{(i)} \log(\hat{y}_j^{(i)})$
+## 3. $y_j^{(i)} \log(\hat{y}_j^{(i)})$
 This part acts Like an “Indicator”
 
 - If $y^{(i)} = 1$, then $-\sum_i y^{(i)} \log(\hat{y}^{(i)})$ **picks out** $-\log(\hat{y}^{(i)})$ for that specific $i$.
