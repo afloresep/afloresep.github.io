@@ -32,7 +32,7 @@ Where:
 
 $\mathbf{y} \in \mathbb{R}^V$ is a one-hot vector representing the true class (of $V$ possible classes/tokens).
 
-$\hat{\mathbf{y}} \in \mathbb{R}^V$ is the predicted probability distribution (often obtained via a (softmax)[https://afloresep.github.io/posts/2025/03/softmax/] layer).
+$\hat{\mathbf{y}} \in \mathbb{R}^V$ is the predicted probability distribution (often obtained via a [softmax](https://afloresep.github.io/posts/2025/03/softmax/) layer).
 
 For example, if we are trying to predict the next letter in a word or a phrase, $V$ would be the alphabet, hence $\mathbf{y} \in \mathbb{R}^{26}$, and if our predicted next letter is _'c'_ then our vector $\hat y$ would be
 

@@ -97,7 +97,7 @@ $$
 o^{(t)} = V s^{(t)} + b_y \tag 5
 $$
 
-These logits do not yet form a proper **[[Probability Distribution]]** so they cannot really be compared to the ground truth ($\hat y$) so we apply **[[UniBe/Machine Learning/Softmax Function|Softmax Function]]** to get the normalized probabilities over all possible output classes (e.g. letters in the alphabet) at time $t$. The softmax function is applied then as follows:
+These logits do not yet form a proper **[Probability Distribution]** so they cannot really be compared to the ground truth ($\hat y$) so we apply **[Softmax Function](https://afloresep.github.io/posts/2025/03/softmax/)** to get the normalized probabilities over all possible output classes (e.g. letters in the alphabet) at time $t$. The softmax function is applied then as follows:
 
 $$
 \hat{y}^{(t)}_i = \frac{e^{o^{(t)}i}}{\sum_{i=1}^k e^{o^{(t)}_i}} \tag 6
