@@ -8,6 +8,7 @@ tags:
   - Algebra 
 ---
 
+![W over time](/images/linear_regressoion_evolution.gif)
 TL;DR: 
 Today we are building a simple regression model from scratch using just numpy.
 
@@ -242,4 +243,4 @@ We can also plot how our parameters (the slope of the line) changed over time
 ![W over time](/images/linear_regressoion_evolution.gif)
 
 
-You can find the whole code and some other from scratch implementations at my github: https://github.com/afloresep/Machine-Learning-From-Scratch 
+You can find the whole code and some other from scratch implementations at my [github](https://github.com/afloresep/Machine-Learning-From-Scratch)
