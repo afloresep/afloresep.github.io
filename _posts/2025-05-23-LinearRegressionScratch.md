@@ -1,6 +1,6 @@
 ---
 title: 'Linear Regression from Scratch'
-date: 2025-05-233
+date: 2025-05-23
 permalink: /posts/2025/05/LinearRegression/
 tags:
   - Numpy 
