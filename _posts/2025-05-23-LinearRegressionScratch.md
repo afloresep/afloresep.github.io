@@ -236,9 +236,12 @@ And we see how the MSE changed for each iteration!
 
 ![MSE over time](images/linear_regression_mse.png)
 
+
+![MSE over time]({{ "/images/linear_regression_mse.png" | relative_url }})
+
 We can also plot how our parameters (the slope of the line) changed over time
 
-![W over time](images/linear_regressoion_evolution.gif)
+![W over time](/images/linear_regressoion_evolution.gif)
 
 
 You can find the whole code and some other from scratch implementations at my github: https://github.com/afloresep/Machine-Learning-From-Scratch 
