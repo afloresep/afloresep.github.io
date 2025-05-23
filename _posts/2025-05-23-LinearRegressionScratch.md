@@ -234,10 +234,8 @@ lreg.fit(X_train, y_train)
 
 And we see how the MSE changed for each iteration!
 
-![MSE over time](images/linear_regression_mse.png)
+![MSE over time](/images/linear_regression_mse.png)
 
-
-![MSE over time]({{ "/images/linear_regression_mse.png" | relative_url }})
 
 We can also plot how our parameters (the slope of the line) changed over time
 
