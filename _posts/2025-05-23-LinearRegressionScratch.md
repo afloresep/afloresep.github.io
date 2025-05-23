@@ -9,7 +9,7 @@ tags:
 ---
 
 ![W over time](/images/linear_regressoion_evolution.gif)
-TL;DR: 
+
 Today we are building a simple regression model from scratch using just numpy.
 
 
