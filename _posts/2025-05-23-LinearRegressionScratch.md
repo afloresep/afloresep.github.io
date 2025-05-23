@@ -14,19 +14,24 @@ Today we are building a simple regression model from scratch using just numpy.
 
 
 
-Linear regression is one of the simplest and most widely used supervised machine-learning algorithms. At its core, it assumes a linear relationship between input features $x$ and a real‐valued output $y$, and learns weights $\theta$ so that
+Linear regression is one of the simplest and most widely used supervised machine-learning algorithms. At its core, it assumes a linear relationship between input features $x$ and a real‐valued output $y$, and learns weights $\theta$ so that we can make a prediction ($h_\thetay(x)$)
 
 $$
 h_\theta(x) = \theta^T x
 $$
 
 
-best fits the observed data. In this post we’ll:
+And we want the predictions of our model to fit the observed data as good as possible. In this post we’ll:
+
 	1.	Introduce the notation and cost function.
+
 	2.  The Cost Function	
+
 	3.	Learning $\theta$: Gradient Descent 
+
 	4.	Numpy implementation: predicting house prices.
-	5 Visualization 
+ 
+	5 Visualization of our learning
 
 
 ## Building a Linear Regression from Scratch in Python
@@ -43,7 +48,8 @@ $$
 
 - Output $y\in\mathbb{R}$: the target (e.g. price).
 - Parameters $\theta\in\mathbb{R}^{d+1}$: which tells us how each parameter will impact the price. 
-For example, the number of bedrooms is probably more important to the final price than the number of bathrooms. These weights will tweak the features just enought to get our prediction as close as possible. 
+
+sFor example, the number of bedrooms is probably more important to the final price than the number of bathrooms. These weights will tweak how the features (bedrooms, bathrooms...) impact our prediction just enought to get it as close possible to our observed data.
 
 
 Normally one would write the prediction, often written as $\hat y$ or  ($h_\theta(x)$) as :
@@ -88,7 +94,7 @@ $$
 
 As you can see, all its doing is computing the sum of squared errors ($\hat y - y$) and dividing them by the total number of samples ($m$). In other words, the **mean** *squared* error. 
 
->[! tip] Reminder
+{: .notice--success}
 **Keep in mind that $\hat y$, and $h_\theta(x)$** are the same and all the mean is the prediction of $y$ given $x$ with our current weights which can be calculated by doing $\theta^T x$
 
 Since our objective is to tune the parameters the best we can, we have to *MINIMIZE* this loss. But, how do we update the weights after we calculated the current loss we have? 
