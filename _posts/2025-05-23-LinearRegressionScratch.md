@@ -236,7 +236,6 @@ And we see how the MSE changed for each iteration!
 
 ![MSE over time](../images/linear_regression_mse.png)
 
-
 We can also plot how our parameters (the slope of the line) changed over time
 
 ![W over time](../images/linear_regressoion_evolution.gif)
