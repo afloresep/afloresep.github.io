@@ -1,252 +1,103 @@
 ---
-title: 'Linear Regression from Scratch'
-date: 2025-05-23
-permalink: /posts/2025/05/LinearRegression/
+title: 'Ridge Regression from Scratch'
+date: 2025-05-25
+permalink: /posts/2025/05/RidgeRegression/
 tags:
   - Numpy 
   - Machine Learning 
   - Algebra 
 ---
 
-![W over time](/images/linear_regressoion_evolution.gif)
+![Lambda](/images/ridge_slope.png)
 
-Today we are building a simple regression model from scratch using just numpy.
-
-
-
-Linear regression is one of the simplest and most widely used supervised machine-learning algorithms. At its core, it assumes a linear relationship between input features $x$ and a real‐valued output $y$, and learns weights $\theta$ so that we can make a prediction ($h_\thetay(x)$)
+Recalling the classical [linear‐least‐squares problem](https://afloresep.github.io/posts/2025/05/LinearRegression/)
+Given a dataset of $n$ observations and their correspondent responses $y_i$, we seek a parameter vector $\theta = (\theta_0,\dots,\theta_n)$  that **minimizes** the residual sum of squares (or the sum of squared estimate of errors): 
 
 $$
-h_\theta(x) = \theta^T x
+J(\theta) \frac{1}{n} \sum_{i=1}^n \bigl(y^{(i)} - \theta^\top x^{(i)}\bigr)^2
 $$
 
+We would like to **penalize** large values of $\theta$, gently “pulling” the parameters toward zero. This discourages the model from relying overly on any single (possibly noisy) direction in feature space.
 
-And we want the predictions of our model to fit the observed data as good as possible. In this post we’ll:
+Let's say we plot the ordinary least squares (OLS) cost function assuming only two parameters 
 
-	1.	Introduce the notation and cost function.
+![Error Surface](https://allmodelsarewrong.github.io/images/penalized/ridge-error-surface.svg)
+*Image from* https://allmodelsarewrong.github.io/ridge.html
 
-	2.  The Cost Function	
-
-	3.	Learning $\theta$: Gradient Descent 
-
-	4.	Numpy implementation: predicting house prices.
- 
-	5 Visualization of our learning
+The OLS solution would be the one that minimizes the Error surface (center of the sphere in 2D), introducing the regularization we try to pull the parameters from finding the OLS solution by imposing a small constrain. This allows the model to avoid **overfitting**
 
 
-## Building a Linear Regression from Scratch in Python
-
-### 1. Basic Notation
-
-The main notation we will use is:  
-- Input $x\in\mathbb{R}^d$: a vector of $d$ features.
-- For a house‐pricing example:
+The second picture (the orange disk) shows the set of all $\theta=(\theta_1,\theta_2)$ such that
 
 $$
-x = \begin{bmatrix} \text{area}\\\text{bedrooms}\\\vdots\end{bmatrix}
+\theta_1^2 + \theta_2^2 \;\le\; c
 $$
 
-- Output $y\in\mathbb{R}$: the target (e.g. price).
-- Parameters $\theta\in\mathbb{R}^{d+1}$: which tells us how each parameter will impact the price. 
+That is literally a circle (in 2D) of radius $\sqrt{c}$. Inside that circle, the length ($\mathcal{l}_2$‐norm) of the coefficient vector is at most $\sqrt{c}.$
 
-sFor example, the number of bedrooms is probably more important to the final price than the number of bathrooms. These weights will tweak how the features (bedrooms, bathrooms...) impact our prediction just enought to get it as close possible to our observed data.
+![Rdige constrain](/images/ridge-constraint1.svg)
 
+*Image from* https://allmodelsarewrong.github.io/ridge.html
 
-Normally one would write the prediction, often written as $\hat y$ or  ($h_\theta(x)$) as :
+This in practice means that our $\theta$ can only take values that lies inside the $c$ circle. Were the circle big enough and we could find the exact same solution as in OLS. 
 
-
-$$
-h_\theta (x) = \theta_0 + \theta_1x_1 + \theta_2x_2
-\,,\ \theta = \begin{bmatrix} \theta_0 \\ \theta_1\\ \theta_2\end{bmatrix}
-$$
+**The point of first contact is your Ridge solution: it’s the \theta with minimal error among all vectors of length at most $\sqrt{c}$**
 
 
-
-However, is much simpler to write it as the Dot product (or inner product) of both vectors
-
-$$
-    h_\theta(x) = \sum_{i=0}^d \theta_i x_i = \theta^\top x\text{,}
-$$
+In practice, how do we impose said constrain in our model? We do it by using $\lambda$. 
+We can think of it as a one to one correspondence with $c$.
 
 
-Now, given a training set, how do we pick, or learn, the parameters $\theta$ ?
-
-One reasonable method seems to be to make $h(x)$ close to $y$, at least for the training examples we have. To formalize this, we will define a function that measures, for each value of the $\theta$'s, **how close the $h(x^{(i)})$'s are to the corresponding $y^{(i)}$'s.** 
-
-This is where the Cost Function comes into play
-### 2. The Cost Function: Ordinary Least Squares
-
-
-In **machine learning (ML)**, a **cost function** (also called a loss function) is a measure of **how well the model’s predictions match the actual outcomes or targets**. The cost function gives a numerical value, the **cost** or **loss** that **quantifies** the **error** (or "cost") between the **predicted** values and the **true** values  The goal of training a machine learning model is to minimize this cost function by adjusting the model’s parameters.
-
-#### Loss function
-There's multiple way we can compute the loss function - usually written $\mathcal{L} (y_i, \hat y_i$)- where $y_i$ is the **actual** output and $\hat y_i$ is the **predicted** output. One example could be using Cross-entropy as Loss function. 
-In Regression models we normally use Mean Squared Error or Mean Averaged Error. For this example we will use MSE. 
+{: .notice--info} **$c$ and $\lambda$**
+1. **Small** $c$ **(or large** $\lambda$**)**
+The orange circle is tiny. The best‐error ellipse that can touch it is still relatively large forcing $\theta$ very close to zero (strong shrinkage, high bias, low variance).
+2. **Large** $c$ **(or small** $\lambda$**)**
+The circle expands. We allow more complex $\theta$, so the optimal point moves out toward the unconstrained OLS solution (lower bias, higher variance)
 
 
+Now our cost function with the added penalization term looks like this: 
 
 $$
-\begin{equation}
-    J(\theta) = \frac {1}{2m} \sum_{i=1}^n \left( h_\theta(x^{(i)}) - y^{(i)} \right)^2\text{.}
-\end{equation}
+J(\theta) \frac{1}{n} \sum_{i=1}^n \bigl(y^{(i)} - \theta^\top x^{(i)}\bigr)^2 + \lambda \sum^p_{j=1} (\theta_j^2)
+$$
+
+When computing the gradient w.r.t. $W$ we end up with:
+
+$$
+\nabla J(\theta) = \frac{2}{n}\;X^\top\,(X\theta - y) \;+\; 2\,\lambda\,\theta
+$$
+
+{: .notice--info}
+See how in the cost  is written as 
+$$\tfrac1n\sum_i (y^{(i)} - \theta^\top x^{(i)})^2$$
+but the gradient ends up involving to 
+$$\theta^\top x^{(i)} - y^{(i)}$$
+That is because When you take the derivative of the square $(y - f)^2$, the “inside” $y - f$ produces a minus sign, which flips the order:
+
+$$
+\frac{d}{df}\bigl(y - f\bigr)^2 =2\,(y - f)\,\frac{d}{df}(y - f) =-2\,(y - f) =2\,(f - y)
 $$
 
 
-As you can see, all its doing is computing the sum of squared errors ($\hat y - y$) and dividing them by the total number of samples ($m$). In other words, the **mean** *squared* error. 
-
-{: .notice--success}
-**Keep in mind that $\hat y$, and $h_\theta(x)$** are the same and all the mean is the prediction of $y$ given $x$ with our current weights which can be calculated by doing $\theta^T x$
-
-Since our objective is to tune the parameters the best we can, we have to *MINIMIZE* this loss. But, how do we update the weights after we calculated the current loss we have? 
-
-
-### 3. Learning $\theta$ via Gradient Descent 
-
-We want to choose $θ$ so as to minimize $J(θ)$ (the cost function). To do so, we should have some form of search algorithm that starts with some “initial guess” for $θ$, and that repeatedly changes $θ$ to make $J(θ)$ smaller, until hopefully we converge to a value of $θ$ that minimizes $J(θ).$
-
-For instance let's consider only one single sample (n=1). **We do the gradient (derivates) of** $J(\theta)$ w.r.t. weights: 
-
-$$ 
-J(\theta) =  \frac {1}{2}(\theta^Tx^{1} -y^1 )^2 
-$$
-
-Is then transformed  to
+We can update our parameter in gradient-descent as:
 
 $$
-\nabla J(\theta) = \frac {2}{2}(\theta^Tx^{1} -y^1 )x^1
+\theta \;\gets\;\theta \;-\;\eta\;\Bigl[\tfrac{2}{n}X^\top(X\theta - y) \;+\;2\lambda\,\theta\Bigr]
 $$
 
-So now, the algorithms updates $\theta$ for all values of $j = 0, . . . , n.)$.
-
-$$
-\theta_j := \theta_j - \alpha(\theta^Tx^{1} -y^1 )x^1
-$$
-
-Here, $α$ is called the **[[learning rate]]**. This is a very natural algorithm that repeatedly takes a step in the direction of steepest decrease of $J$
-
-We’d derived the LMS rule for when there was only a single training example. There are two ways to modify this method for a training set of more than one example. 
-- The first is replace it **repeating until convergence**: 
-
-$$
-\theta_j := \theta_j - \alpha \sum^m_{i=1}(\theta^Tx^{i} -y^i )x^i
-$$
-
-This method looks at every example in the entire training set on every step, and is call is called **batched gradient descent**
-
-In code, a single gradient‐descent update looks like:
+In python this would be:
 
 ```python
-error = X_train.dot(self.W) - y_train
-grad  = (2 / X_train.shape[0]) * X_train.T.dot(error)
-self.W -= self.lr * grad
+w_grad = (2 / X_train.shape[0])* X_train.T.dot(error) + 2*self.reg_factor*(self.W.T)
+self.W -= self.lr * w_grad 
 ```
 
-Repeating for `n_iterations` gradually reduces the loss.
-
-### 4.	Numpy implementation: predicting house prices.
+The rest of the model is implemented as a normal [Linear Regression](https://afloresep.github.io/posts/2025/05/LinearRegression/)
 
 
-So, now that we've covered the theory, let's code it. 
+#### How to chose $\lambda$?
+In practice, $\lambda$ is a parameter we can only chose through testing. As we've seen we have a tradeoff between a small $\lambda$ which implies getting closer to the OLS solution (low bias, high variance if overfitted) or large $\lambda$ where we shrink the coefficients towards zero (higher bias, low variance).
 
-First, we will initialize our class and initialize the values: `learning r`ate and `number of iterations`
+If we plot how this factor changes our prediction model we see that as $\lambda$ increases the slope approximates zero and moves away from the OLS solution (i.e. $\lambda = 0$)
 
-```python
-class LinearRegression:
-    """Linear model.
-
-    Args:
-        n_iterations (float): The number of training iterations the algorithm will tune the weights for.
-        learning_rate (float): The step length that will be used when updating the weights.
-        gradient_descent (boolean): True or false depending if gradient descent should be used when training. If 
-        false then we use batch optimization by least squares.
-    """
-
-    def __init__(self, n_iterations:int=100,
-                 lr:float=0.01)
-       self.n_iterations = n_iterations
-       self.lr = lr 
-       self.W = None
-
-       # These two are just for plotting lates
-       self.loss_over_time = []
-       self.loss_over_time= []
-
-```
-
-We also will initialize some random weights. There's different ways of doing this but we can just use a random uniform distribution for it.
-
-```python
-    def initialize_weights(self, n_features):
-        """Initialize weights randomly 
-
-        Args:
-            n_features (int): Number of features in X
-        """
-        limit = 1 / math.sqrt(n_features)
-        self.W = np.random.uniform(-limit, limit, (n_features, ))
-
-```
-
-Now the training part. Here we will perform Gradient Descent. Once again all we are doing is predicting values (`y_hat)` based on our current weights and our training data, then computing the loss (i.e. how far our prediction is at the moment) based on the error (difference between predicted values and actual values) and updating our weights using the gradient of the loss we measured.
-
-In code could be something like this: 
-```python
-    def fit(self, 
-            X_train: np.ndarray, 
-            y_train: np.ndarray):
-
-        # Initialize randomly W
-        self.initialize_weights(X_train.shape[1])
-
-        # Gradient Descent
-        for _ in range(self.n_iterations):
-
-            # Prediction
-            y_hat = np.dot(self.W, X_train.T)
-
-            # We append the current loss to plot later on
-            self.loss_over_time.append(mean_squared_error(y_train, y_hat))
-
-            # Weights are updatated by - lr(error).dot X_train
-            error = y_hat - y_train
-            w_grad = (2 / X_train.shape[0])* X_train.T.dot(error)
-            
-            self.W -= self.lr * w_grad
-            self.w_over_time.append(float(self.W))
-```
-
-
-
-
-
-#### 5. Visualization 
-
-How well does our model perform? 
-
-Let's get some data from scikit-learn
-
-```python 
-from sklearn.datasets import make_regression
-
-X, y = make_regression(n_samples=10000, n_features=1, noise=20)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
-```
-
-
-Now we fit our model 
-```python
-lreg = LinearRegression(n_iterations=200)
-lreg.fit(X_train, y_train)
-```
-
-And we see how the MSE changed for each iteration!
-
-![MSE over time](/images/linear_regression_mse.png)
-
-
-We can also plot how our parameters (the slope of the line) changed over time
-
-![W over time](/images/linear_regressoion_evolution.gif)
-
-
-You can find the whole code and some other from scratch implementations at my [github](https://github.com/afloresep/Machine-Learning-From-Scratch)
+![Lambda](/images/ridge_slope.png)
