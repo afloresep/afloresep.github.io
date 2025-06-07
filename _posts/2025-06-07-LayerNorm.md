@@ -10,7 +10,8 @@ tags:
 
 Layer Normalization is a technique in deep learning that addresses the [[covariate shift]] problem by normalizing thanks to the mean and variance calculated across features for **each example**. 
 
-{: .notice--warning} Covariate Shift
+{: .notice--warning} 
+Covariate Shift
 **Covariate shift occurs when the distribution of variables in the training data is different to real-world or testing data.** Therefore, covariate shift can make the model generalize poorly. 
 
 While Batch Normalization (BN) is dependent on the mini-batch size ($N$), LayerNorm (LN) 
