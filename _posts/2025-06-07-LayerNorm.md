@@ -8,7 +8,7 @@ tags:
 ---
 
 
-Layer Normalization is a technique in deep learning that addresses the [[covariate shift]] problem by normalizing thanks to the mean and variance calculated across features for **each example**. 
+Layer Normalization is a technique in deep learning that addresses the covariate shift problem by normalizing thanks to the mean and variance calculated across features for **each example**. 
 
 {: .notice--warning}
 
@@ -35,7 +35,7 @@ In this set of Neurons, we would at each hidden state (e.g $y$) do the Layer Nor
 
 Let's say we start with a batch of $N$ samples, each processed through the network:
 
-The Input layer $x$ consumes an $N\times15$ matrix (e.g. N=100, 15 features), then **after the linear + activation** in layer $y$, we have an $N\times D_y$ matrix of activations (in the sketch $D_y=5$).
+The Input layer $x$ consumes an $N\times15$ matrix (e.g. N=100, 15 features), then **after the linear + activation** in layer $y$, we have an $N\times D_y$ matrix of activations (in the sketch $D_y=6$).
 
  LayerNorm on $y$ sits between $y$ and the next weights. It takes each row (one sample’s 5-vector) and normalizes it to zero mean and unit variance **independently** of every other sample using the formula we described before. 
 
